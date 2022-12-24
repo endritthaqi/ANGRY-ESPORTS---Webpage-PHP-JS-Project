@@ -139,12 +139,6 @@ main{
 }
 }
 
-#banner{
-width: 100%;
-height: 1000px;
-background-image: url("/img/banner.png");
-}
-
 
 footer {
   padding-left: 140px;
@@ -172,4 +166,24 @@ footer {
 
 .foot1 h3  {
   color: #dd1c21;
+}
+
+#kupa {
+
+  display: flex;  
+  align-items: center;  /* Center the items vertically within the container */
+  width: 100%; /*Width and height per mos me na u zvoglu foto kur tbojm zoomout */
+  height: 600px;
+  align-items: center;
+  position: static; /* E ngashme me relative */
+  object-fit: cover;
+
+}
+
+#kupa-left{
+  height: auto;
+  background-image: url(img/kupa.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #dd1c21;
 }
