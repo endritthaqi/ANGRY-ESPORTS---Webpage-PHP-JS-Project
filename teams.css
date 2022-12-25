@@ -17,7 +17,7 @@ main{
 .teamC{
     width: 280px;
     height: 350px;
-    border: 1px solid red;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;    
     padding-top: 215px;
 
 }
