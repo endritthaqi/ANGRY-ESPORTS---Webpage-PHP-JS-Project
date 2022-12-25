@@ -150,7 +150,7 @@ footer {
 #babafooterit {
   height: 140px;
   transform: skewY(-3deg);
-  margin-bottom: -50px;
+  margin-bottom: -52px;
 }
 #redmajt{
   height: 7%;
@@ -184,8 +184,34 @@ footer {
 }
 
 
+/* ARRITJET INDEX  */
+#bigachiv{
+  height: auto;
+  width: 100%;
+  background-color: #000000;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
 
+#achivplaces{
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
 
+.placeschild{
+  display: flex;
+  flex-direction: column;
+}
+.placeschild h1{
+  -webkit-text-stroke: 1px #ff050d;
+  font-size: 4rem;
+}
+.placeschild h5{
+  font-size: 3rem;
+  color: white;
+}
 
 
 
@@ -285,6 +311,27 @@ footer {
   .tournaments img{
     width:120px;
     height:120px;
+  }
+  #achivplaces{
+    margin-top: -60px;
+    flex-direction: column;
+    padding: 50px;
+    flex-wrap: wrap;
+  }
+  #kallamoqi{
+    font-size: 1rem;
+  }
+  .placeschild h1{
+    font-size: 3rem;
+  }
+  .placeschild h5{
+    font-size: 1rem;
+    color: white;
+  }
+  #bigachiv{
+    padding-top: 50px;
+    padding-bottom: 10px;
+
   }
 }
 
