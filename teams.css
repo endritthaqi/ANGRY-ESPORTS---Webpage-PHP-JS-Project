@@ -13,7 +13,7 @@ main{
 }
 
 .teamC{
-    width: 20%;
+    width: 280px;
     height: 350px;
     border: 1px solid red;
 }
@@ -25,14 +25,15 @@ main{
 }
 
 #PUBG{
-    background: url("/img/") no-repeat;
+    background: url("/img/pubgmobileL.png") no-repeat;
+    background-position: center;
 }
 #VALORANT{
-    background: url("/img/") no-repeat;
+    background: url("/img/valorantL.png") no-repeat;
 }
 #CSGO{
-    background: url("/img/") no-repeat;
+    background: url("/img/csgoL.png") no-repeat;
 }
 #DOTA2{
-    background: url("/img/") no-repeat;
+    background: url("/img/dota2L.png") no-repeat;
 }
