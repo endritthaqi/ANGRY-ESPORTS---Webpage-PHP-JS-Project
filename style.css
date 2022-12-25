@@ -147,6 +147,64 @@ footer {
   flex-wrap: wrap;
 }
 
+#babafooterit {
+  height: 140px;
+  transform: skewY(-3deg);
+  margin-bottom: -50px;
+}
+#redmajt{
+  height: 7%;
+  width: 10%;
+  background-color: red;
+}
+
+#reddjatht{
+  float: right;
+  height: 7%;
+  width: 10%;
+  background-color: red;
+}
+#reddjatht2{
+  float: right;
+  height: 7%;
+  width: 10%;
+  background-color: red;
+}
+
+#kaft90gjere{
+
+  height: 7%;
+  width: 90%;
+  background-color: rgb(45, 37, 37);
+  margin-bottom: -1px;
+}
+#zi80{
+  height: 86%;
+  background-color: #000000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media (max-width:1280px) {
@@ -159,6 +217,24 @@ footer {
     margin: 0px 20px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
