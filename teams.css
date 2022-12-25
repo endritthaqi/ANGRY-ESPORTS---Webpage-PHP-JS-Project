@@ -4,11 +4,35 @@ main{
     background-color: rgb(255, 255, 255);
 }
 #teams80{
-
-
     width: 80%;
     height: auto;
     background-color: rgb(42, 51, 117);
     margin:0 auto;
     text-align: center;
+    padding-top: 100px;
+}
+
+.teamC{
+    width: 20%;
+    height: 350px;
+    border: 1px solid red;
+}
+#ekipet{
+    margin-top: 100px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#PUBG{
+    background: url("/img/") no-repeat;
+}
+#VALORANT{
+    background: url("/img/") no-repeat;
+}
+#CSGO{
+    background: url("/img/") no-repeat;
+}
+#DOTA2{
+    background: url("/img/") no-repeat;
 }
