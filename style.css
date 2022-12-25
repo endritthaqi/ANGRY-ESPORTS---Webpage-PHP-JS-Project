@@ -100,7 +100,7 @@ footer {
   padding: 20px;
   display: flex;
   justify-content: space-around;
-  height: 400px;
+  min-height: 400px;
 }
 
 #footer1{
@@ -117,6 +117,14 @@ footer {
 
 .foot1 h3  {
   color: #dd1c21;
+}
+
+#shopf{
+  padding-right: 55px;
+}
+
+#teamsf{
+  padding-right: 55px;
 }
 
 #kupa {
@@ -320,7 +328,13 @@ footer {
     font-size: 2rem;"
   }
 
-  
+  footer{
+    display: flex;
+    flex-direction: column;
+  }
+  .foot1{
+    padding-top: 30px;
+  }
 }
 
 
