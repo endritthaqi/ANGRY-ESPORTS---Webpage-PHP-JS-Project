@@ -8,7 +8,7 @@ function validoMeRegex(){
     var passwordi = document.getElementById('pw1').value;
     var firstname = document.getElementById('firstname3').value;
 
-    var regexFIRSTNAME = /^[A-Z][a-z]{4,14}$/; // min 5 max 15
+    var regexFIRSTNAME = /^[A-Z][a-z]{4,14}$/; // min 5 maxx 15
     var regexUSERNAME = /^[a-zA-Z0-9]{5,20}$/; // mesepaku 5
     var regexEMAIL = /^[a-zA-Z][a-zA-Z0-9_.]+@[a-zA-Z0-9-]+\.(com|net)$/; //email duhet te startoj me shkronje dhe ka @ dhe ends.com.net
     var regexPASSWORD = /^[A-Z][a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]{6,}$/ // min. 7 karaktere, karakteri i pare ne upper case dhe te ket 1num 1specchar
