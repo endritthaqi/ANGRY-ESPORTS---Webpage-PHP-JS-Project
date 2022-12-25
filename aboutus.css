@@ -1,0 +1,17 @@
+main{
+    background-color: #000000;
+    color:white;
+    width: 100%;
+  }
+  
+  #history{
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  #history h1{
+    font-size: 4rem;
+    -webkit-text-stroke: 1px #ff050d;
+    color: #000000;
+  }
+  
