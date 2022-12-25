@@ -212,6 +212,10 @@ footer {
   font-size: 3rem;
   color: white;
 }
+#bigachivtitle{
+  color: white; 
+  font-size: 4rem;"
+}
 
 
 
@@ -243,7 +247,6 @@ footer {
     margin: 0px 20px;
   }
 }
-
 
 
 
@@ -332,6 +335,9 @@ footer {
     padding-top: 50px;
     padding-bottom: 10px;
 
+  }
+  #bigachivtitle{
+    font-size: 2rem;"
   }
 }
 
