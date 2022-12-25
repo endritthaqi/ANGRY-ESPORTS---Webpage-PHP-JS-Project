@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -31,59 +32,16 @@
 
         </div>
     </header>
-    <main>
-        <div id="slider">
-            <img src="" id="imazhi" alt="Slider">
-        </div>
-    </main>
-    <div id="bigachiv">
-        <h1 style="color: white; font-size: 1rem;">PROUD OF</h1>
-        <div id="bigachivtitle">
-            <h2>BIGGEST <strong style="color:#ff050d">ACHIEVEMENTS</strong></h2>
-            <br>
-        </div>
-        <div id="achivplaces">
-            <div class="placeschild">
-                <h1>3</h1>
-                <h5>TEAMS</h5>
-            </div>
-            <div class="placeschild">
-                <h1>50+</h1>
-                <h5>1ST PLACES</h5>                
-            </div>
-            <div class="placeschild">
-                <h1>200K+</h1>
-                <h5>REWARDS</h5>                
-            </div>
-            <div class="placeschild">
-                <h1>500K+</h1>
-                <h5>FANS WORLDWIDE</h5>               
-            </div>
+    <div id="loginform">
+        <div id="loginform1">
+            <h1><b>LOGIN</b></h1>
+            <h6>New to ANGRY ESPORTS? <a href="register.html"><strong style="color: red;">Create an account!</strong></a></h6>
+            <input class="empws" id="em1" type="email" placeholder="Enter email"><br>
+            <input class="empws" id="pw1" type="password" placeholder="Enter password"><br>
+            <input  class="empws" id="submiti" type="submit" value="Login" onclick="validoMeRegex()"><br>
         </div>
     </div>
-       
-    <div id="kupa">
-
-            <div class="tournaments">
-                <h1 style="color: black;">DRIVEN BY</h1>
-                <h1 style="color: red;">COMPETITION</h1>
-            </div>
-            <div class="tournaments">
-                <img src="/img/ramadanproleague.png" alt="rpl">
-                <h4>RAMADAN Pro League</h4>
-                <p>1st place</p>
-            </div>
-            <div class="tournaments">
-                <img src="/img/angrymastersleague.png" alt="aml">
-                <h4>ANGRY Masters League</h4>
-                <p>1st place</p>
-            </div>
-            <div class="tournaments">
-                <img src="/img/valxp-175x175.png" alt="valxp">
-                <h4>KOS ICT Champions</h4>
-                <p>3rd&4th place</p>
-            </div>
-    </div>
+    <div id="zi"></div>
     <div id="babafooterit">
         <div id="reddjatht2"></div>
         <div id="redmajt"></div>
@@ -130,6 +88,6 @@
             <li><a href="#">Dota 2</a></li>    
         </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="loginscript.js"></script>
 </body>
 </html>

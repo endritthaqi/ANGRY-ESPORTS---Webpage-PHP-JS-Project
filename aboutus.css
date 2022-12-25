@@ -59,21 +59,3 @@
 
 
 
-
-@media (max-width:950px) {
-  #hisLEFT{ 
-    
-    display: flex;
-    flex-direction: column;
-    padding-left: 20px;
-    padding-top: 5px;
-    justify-content: space-around;
-  
-  }
-  #hisRIGHT{
-    width: 50%;
-    background-color: #2e2c2c;
-    padding-top: 125px;
-    padding-left: 20px;
-  }
-}

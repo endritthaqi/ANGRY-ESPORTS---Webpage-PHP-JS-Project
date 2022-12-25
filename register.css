@@ -1,0 +1,73 @@
+#loginform{
+    padding-top: 60px;
+    box-shadow: 0 0 50px 1px rgba(0, 0, 0, 0.1);
+    width: 100%; 
+    align-items: center;
+    height: auto;
+  }
+  
+  
+  #loginform1 {
+      padding-top: 15px;
+      border-radius: 20px;
+      margin: auto;
+      width: 480px;
+      height: 480px;
+      background-color: rgb(255, 255, 255);
+      text-align: center;
+  }
+  
+  #loginform1 #em1{
+      padding-left: 10px;
+  }
+  
+  #loginform1 #pw1{
+      padding-left: 10px;
+  }
+  
+  #loginform1 .empws {
+      background-color: rgba(195, 198, 199, 0.87);
+      margin-top: 23px;
+      border-radius: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: bold;
+      font-size: 18px;
+      border: none;
+      width: 400px;
+      height: 50px;
+  }
+  
+  #loginform1 #em1 ::placeholder  {
+      margin-left: 20px;
+  }
+  
+  #loginform1 #pw1{
+      padding-left: 10px;
+  }
+  
+  #loginform1 #submiti{
+      background-color:rgb(37, 103, 247);
+      color: white;
+      width: 412px;
+      height: 52px;
+  }
+  
+  #loginform1 #socialmedia{
+      margin-right: 60px;
+  }
+  #loginform1 #socialmedia ul li{
+      padding: 10px;
+      text-decoration: none;
+      display: inline-block;
+    
+  }
+  #loginform1 #socialmedia ul li img{
+      width: 40px; 
+      height: 40px;
+  
+  }
+  
+  #zi{
+      height: 55px;
+      background-color: white;
+  }
