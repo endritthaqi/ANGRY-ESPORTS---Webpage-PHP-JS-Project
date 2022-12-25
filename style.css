@@ -144,7 +144,7 @@ footer {
 #SOCIALMEDIA #mediat{
   display: flex;
   flex-direction: row;
-  flex: ;
+  flex-wrap: wrap;
 }
 
 
