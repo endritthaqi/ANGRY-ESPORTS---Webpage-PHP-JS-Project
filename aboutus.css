@@ -51,7 +51,22 @@
 
   #kulmiHISTORY{
     width: 100%;
-    height: 400px;
+    min-height: 400px;
     display: flex;
     margin-top: -9px;
   }
+
+
+
+
+
+@media (max-width:950px) {
+  #hisLEFT{ 
+    
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-around;
+  
+  }
+}
