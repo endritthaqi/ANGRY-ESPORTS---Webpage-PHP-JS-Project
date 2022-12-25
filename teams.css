@@ -1,0 +1,14 @@
+main{
+    width: 100%;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+}
+#teams80{
+
+
+    width: 80%;
+    height: auto;
+    background-color: rgb(42, 51, 117);
+    margin:0 auto;
+    text-align: center;
+}
