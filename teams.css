@@ -2,8 +2,6 @@ main{
     width: 100%;
     height: auto;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0 0 50px 61px rgba(0, 0, 0, 0.1);
-
 }
 #teams80{
     width: 80%;

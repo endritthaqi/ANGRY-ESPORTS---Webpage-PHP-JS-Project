@@ -58,4 +58,23 @@
 
 
 
+@media (max-width:1280px) {
+  #hisLEFT{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+    padding-left: 10px;
+    justify-content: space-around;
+  }
+
+  #hisLEFT1{
+    margin-top: -65px;
+    margin-bottom: -50px;
+  }
+  #hisRIGHT{
+    padding-left: 10px;
+  }
+
+}
+  
 
