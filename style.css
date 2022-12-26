@@ -65,10 +65,11 @@ transition: all .50s ease;
 }
 
 #menu{
-display: none;
+  display: none;
+  height: 0;
+  overflow: hidden;
+
 }
-
-
 
 main{
   display: flex;  
@@ -240,33 +241,16 @@ footer {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width:950px) {
   #menu{
     display: block;
+    overflow:visible;
+    height: auto;
   }
   .navbar{
     position: absolute;
     top: 100%;
-    right: -100%;
-    width: 240px;
+    width: 185px;
     height: 150px;
     border: 1px solid black;
     display: flex;
@@ -275,9 +259,10 @@ footer {
     border-radius: 10px;
     transition: all .50s ease;
     background: white;
+    display: none;
+
   }
   .navbar a{
-    display: block;
     margin: 11px 0;
     padding: 0px 25px;
     transition: all .50s ease;
@@ -290,6 +275,11 @@ footer {
   }
   .navbar.open{
     right: 2%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
   #kupa{
     display: flex;
@@ -328,7 +318,7 @@ footer {
 
   }
   #bigachivtitle{
-    font-size: 2rem;"
+    font-size: 2rem;
   }
 
   footer{
