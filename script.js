@@ -11,8 +11,10 @@ menu.onclick= ()  => {
 //SCRIPTA per IMGslider
 var varguImg = [
     'img/1angry.png',
-    'img/banner.png',
-    'img/turnuva111.png'
+    'img/DWDAWD.jpg',
+    'img/turnuva111.png',
+    'img/dwdwdw.png',
+    'img/valteam.jpg',
 ];
 
 var index = 0;
