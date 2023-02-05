@@ -84,7 +84,7 @@
           onclick="validoMeRegex()"
         /><br /><br />
         <h6>
-          <a href="login.html"
+          <a href="login.php"
             ><strong style="color: rgb(250, 0, 0)">Return to Login!</strong></a
           >
         </h6>

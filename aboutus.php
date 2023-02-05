@@ -36,7 +36,7 @@
       </div>
 
       <div class="nav-logreg">
-        <a href="/login.html"
+        <a href="/login.php"
           ><img src="/img/bxs-user.svg" alt="LOGIN" style="height: 30px"
         /></a>
         <a href="#"

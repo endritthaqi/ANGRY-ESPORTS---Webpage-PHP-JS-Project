@@ -54,7 +54,7 @@
         <h1><b>LOGIN</b></h1>
         <h6>
           New to ANGRY ESPORTS?
-          <a href="register.html"
+          <a href="register.php"
             ><strong style="color: red">Create an account!</strong></a
           >
         </h6>
