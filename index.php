@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="icon" href="img/angry2022logo.png" />
+
+    <title>ANGRY E-SPORTS</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.php" class="logo"
+        ><img
+          src="/img/angry2022logo.png"
+          alt="LOGO"
+          style="width: 155px; height: 75px"
+      /></a>
+
+      <div class="navbar">
+        <li><a href="/index.php" class="active">Home</a></li>
+        <li><a href="/teams.php">Teams</a></li>
+        <li><a href="/aboutus.php">About Angry</a></li>
+      </div>
+
+      <div class="nav-logreg">
+        <a href="/login.php"
+          ><img src="/img/bxs-user.svg" alt="LOGIN" style="height: 30px"
+        /></a>
+        <a href="#"
+          ><img src="/img/bxs-cart.svg" alt="SHOP" style="height: 30px"
+        /></a>
+        <div id="menu">
+          <a href="#"
+            ><img src="/img/bx-menu.svg" alt="MENU" style="height: 30px"
+          /></a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="slider">
+        <img src="" id="imazhi" alt="Slider" />
+      </div>
+    </main>
+    <div id="bigachiv">
+      <h1 style="color: white; font-size: 1rem">PROUD OF</h1>
+      <div id="bigachivtitle">
+        <h2>BIGGEST <strong style="color: #ff050d">ACHIEVEMENTS</strong></h2>
+        <br />
+      </div>
+      <div id="achivplaces">
+        <div class="placeschild">
+          <h1>3</h1>
+          <h5>TEAMS</h5>
+        </div>
+        <div class="placeschild">
+          <h1>50+</h1>
+          <h5>1ST PLACES</h5>
+        </div>
+        <div class="placeschild">
+          <h1>200K+</h1>
+          <h5>REWARDS</h5>
+        </div>
+        <div class="placeschild">
+          <h1>500K+</h1>
+          <h5>FANS WORLDWIDE</h5>
+        </div>
+      </div>
+    </div>
+
+    <div id="kupa">
+      <div class="tournaments">
+        <h1 style="color: black">DRIVEN BY</h1>
+        <h1 style="color: red">COMPETITION</h1>
+      </div>
+      <div class="tournaments">
+        <img src="/img/ramadanproleague.png" alt="rpl" />
+        <h4>RAMADAN Pro League</h4>
+        <p>1st place</p>
+      </div>
+      <div class="tournaments">
+        <img src="/img/angrymastersleague.png" alt="aml" />
+        <h4>ANGRY Masters League</h4>
+        <p>1st place</p>
+      </div>
+      <div class="tournaments">
+        <img src="/img/valxp-175x175.png" alt="valxp" />
+        <h4>KOS ICT Champions</h4>
+        <p>3rd&4th place</p>
+      </div>
+    </div>
+    <div id="babafooterit">
+      <div id="reddjatht2"></div>
+      <div id="redmajt"></div>
+      <div id="reddjatht"></div>
+      <div id="kaft90gjere"></div>
+      <div id="zi80"></div>
+    </div>
+    <footer>
+      <div id="SOCIALMEDIA" class="foot1">
+        <div id="fotosocmed">
+          <a href="#"
+            ><img
+              src="/img/angry2022logo.png"
+              alt="LOGIN"
+              style="height: 100px"
+          /></a>
+        </div>
+        <div id="mediat">
+          <li>
+            <a href="https://www.instagram.com/angryteam.pubgm/"
+              ><h1>
+                <i
+                  class="bx bxl-instagram"
+                  onmouseover="this.style.color='purple'"
+                  onmouseout="this.style.color='white'"
+                ></i></h1
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@angryteam9441"
+              ><h1>
+                <i
+                  class="bx bxl-youtube"
+                  onmouseover="this.style.color='red'"
+                  onmouseout="this.style.color='white'"
+                ></i></h1
+            ></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/AngryteamV"
+              ><h1>
+                <i
+                  class="bx bxl-twitter"
+                  onmouseover="this.style.color='rgb(29, 155, 240)'"
+                  onmouseout="this.style.color='white'"
+                ></i></h1
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.twitch.tv/imtibu"
+              ><h1>
+                <i
+                  class="bx bxl-twitch"
+                  onmouseover="this.style.color='#5c16c5'"
+                  onmouseout="this.style.color='white'"
+                ></i></h1
+            ></a>
+          </li>
+          <li>
+            <a href="https://trovo.live/s/angryRABBIT"
+              ><h1>
+                <i
+                  class="bx bxl-facebook"
+                  onmouseover="this.style.color='#385898'"
+                  onmouseout="this.style.color='white'"
+                ></i></h1
+            ></a>
+          </li>
+          <li>
+            <a href="https://discord.gg/angryesports"
+              ><h1>
+                <i
+                  class="bx bxl-discord"
+                  onmouseover="this.style.color='#5865f2'"
+                  onmouseout="this.style.color='white'"
+                ></i></h1
+            ></a>
+          </li>
+        </div>
+      </div>
+      <div class="foot1">
+      <h3>ANGRY ESPORTS</h3>
+        <ul>
+          <li><a href="/index.php">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="/teams.php">Teams</a></li>
+          <li><a href="/aboutus.php">About Us</a></li>
+        </ul>
+      </div>
+      <div id="shopf" class="foot1">
+        <h3>Shop</h3>
+        <li><a href="#">All Products</a></li>
+        <li><a href="#">Pro kit</a></li>
+        <li><a href="#">Lifestyle</a></li>
+        <li><a href="#">Help</a></li>
+      </div>
+      <div id="teamsf" class="foot1">
+        <h3>Teams</h3>
+        <li><a href="#">Pubg Mobile</a></li>
+        <li><a href="#">Valorant</a></li>
+        <li><a href="#">CSGO</a></li>
+        <li><a href="#">Dota 2</a></li>
+      </div>
+    </footer>
+    <script src="script/script.js"></script>
+  </body>
+</html>
