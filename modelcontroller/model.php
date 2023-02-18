@@ -61,6 +61,10 @@
             }
         }
         
+
+
+
+        
         public function insertTrophy(){
             if(isset($_POST['shtoTrofe'])){
                 $trophyName = $_POST['tropyname'];
@@ -75,14 +79,15 @@
                     move_uploaded_file($_FILES['photo']['tmp_name'], $path);
                         echo "<script>alert('Rigjistrimi u be me sukses');</script>";
                         echo "<script>window.location.href = 'trofet.php';</script>";
-                    }
                 }
-                else{
+            }
+
+            else{
                     //echo "<script>alert('Rigjistrimi i sliderit nuk u be');</script>";
                     //echo "<script>window.location.href = 'trofet.php';</script>";
-                }
-
             }
+            
+        }
         
 
 
