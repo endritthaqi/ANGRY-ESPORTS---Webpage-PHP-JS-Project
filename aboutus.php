@@ -30,7 +30,6 @@
       /></a>
 
       <div class="navbar">
-        <li><a href="/index.php">Homee</a></li>
         <li><a href="/index.php">Home</a></li>
         <li><a href="/teams.php">Teams</a></li>
         <li><a href="/aboutus.php" class="active">About Angry</a></li>

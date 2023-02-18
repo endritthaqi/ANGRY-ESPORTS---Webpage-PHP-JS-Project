@@ -236,12 +236,7 @@
         }
 
         krijoSlider();</script>
-    <script src="script/script.js">
-    </script>
-    
-  </body>
-</html>
-=======
     <script src="script/script.js"></script>
+    
   </body>
 </html>
