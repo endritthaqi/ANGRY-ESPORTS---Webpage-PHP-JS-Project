@@ -62,7 +62,33 @@
         }
         
 
+        public function insertUseryy(){
+            if(isset($_POST['shtojeUserin'])){
 
+                $fullname = $_POST['fullname'];
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+                $city = $_POST['city'];
+                $fshat = $_POST['fshat'];
+                $zipcode = $_POST['zipcode'];
+                $role = $_POST['role'];
+
+                $image = $_FILES['photoUser']['name'];
+                $path = 'uploads/userimg/'.$image;
+
+                
+                $query = "CALL ShtoUser('$fullname', '$username', '$email', '$password', '$city', '$fshat', '$zipcode', '$role', '$path')";
+                if ($sql = $this->conn->query($query)) {
+                    move_uploaded_file($_FILES['photoUser']['tmp_name'], $path);
+                    echo "<script>alert('Rigjistrimi u be me sukses');</script>";
+                    echo "<script>window.location.href = 'sliderimages.php';</script>";
+                }else{
+                    echo "<script>alert('Rigjistrimi i sliderit nuk u be');</script>";
+                    echo "<script>window.location.href = 'sliderimages.php';</script>";
+                }
+            }
+        }
 
         
         public function insertTrophy(){
@@ -81,7 +107,6 @@
                         echo "<script>window.location.href = 'trofet.php';</script>";
                 }
             }
-
             else{
                     //echo "<script>alert('Rigjistrimi i sliderit nuk u be');</script>";
                     //echo "<script>window.location.href = 'trofet.php';</script>";

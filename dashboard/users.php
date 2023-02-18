@@ -92,6 +92,12 @@
                         <label style="font-size: 1.5em;" for="newpostttt"><i class='bx bxs-user'></i>Add New
                             User</label>
                         <br><br>
+                        <?php
+                            include '../modelcontroller/model.php';
+                            $model = new Model();
+                            $shtoUseryn = $model->insertUseryy();
+                        ?>
+                        <form action="" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="fullname"><i class='bx bxs-user-detail'></i>Full Name</label>
                             <input type="text" id="fullname" name="fullname" required>
@@ -124,17 +130,18 @@
                             <label for="role"><i class='bx bxs-user-detail'></i>Role</label>
                             <select id="role" name="role" required>
                                 <option value="" selected disabled>Select role</option>
-                                <option value="admin">Admin</option>
-                                <option value="player">Player</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Player">Player</option>
                             </select>
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="photo"><i class='bx bxs-camera'></i>Photo</label>
-                            <input type="file" id="photo" name="photo">
+                            <input type="file" id="photo" name="photoUser">
                         </div>
-                        <button type="submit">Add User</button>
+                        <button name="shtojeUserin" type="submit">Add User</button>
                         <br><br><br>
+                        </form>
                     </div>
 
                 </div>
@@ -160,9 +167,6 @@
                 </thead>
                 <tbody>
                     <?php
- 
-                    include '../modelcontroller/model.php';
-                    $model = new Model();
                     $rows = $model->fetchUsers();
                     $i = 1;
                     if(!empty($rows)){
@@ -170,13 +174,12 @@
                     ?>
                     <tr>
                     <td><?php echo $i++; ?></td>
-                    <?php if(base64_encode($row['profili']) != null){?>
-                            <td><img src="data:image/jpeg;base64,<?php echo base64_encode($row['profili']); ?>" alt="Photo"></td>
+                    <?php if($row['profili'] != null){?>
+                            <td><img src="/dashboard/<?php echo $row['profili']; ?>" alt="Photo"></td>
                         <?php } else{?>
                             <td><img src="/dashboard/uploads/userprofile.png" alt="Placeholder Image"></td>
                         <?php } 
                         ?>
-                    
                     
                     <td><?php echo $row['fullname']; ?></td>
                     <td><?php echo $row['username']; ?></td>
