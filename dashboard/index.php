@@ -128,21 +128,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Page Settings</h3>
-                            <i class='bx bx-cog'></i>
-                        </div>
-                        <div class="card-body">
-                            <h2>10</h2>
-                            <a href="web_settings.php" class="btn-view-details">
-                                <i class='bx bx-show'></i>
-                                View Details
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="col">
                     <div class="card">
                         <div class="card-header">
@@ -152,6 +138,21 @@
                         <div class="card-body">
                             <h2>4</h2>
                             <a href="sliderimages.php" class="btn-view-details">
+                                <i class='bx bx-show'></i>
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Page Settings</h3>
+                            <i class='bx bx-cog'></i>
+                        </div>
+                        <div class="card-body">
+                            <h2>!</h2>
+                            <a href="web_settings.php" class="btn-view-details">
                                 <i class='bx bx-show'></i>
                                 View Details
                             </a>

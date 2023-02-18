@@ -78,17 +78,22 @@
                 $path = 'uploads/userimg/'.$image;
 
                 
-                $query = "CALL ShtoUser('$fullname', '$username', '$email', '$password', '$city', '$fshat', '$zipcode', '$role', '$path')";
+                $query = "CALL ShtoUser('$fullname', '$username', '$email', '$password', '$city', '$fshat', '$zipcode', '$role', '$path');";
                 if ($sql = $this->conn->query($query)) {
                     move_uploaded_file($_FILES['photoUser']['tmp_name'], $path);
                     echo "<script>alert('Rigjistrimi u be me sukses');</script>";
-                    echo "<script>window.location.href = 'sliderimages.php';</script>";
+                    echo "<script>window.location.href = 'users.php';</script>";
                 }else{
                     echo "<script>alert('Rigjistrimi i sliderit nuk u be');</script>";
-                    echo "<script>window.location.href = 'sliderimages.php';</script>";
+                    echo "<script>window.location.href = 'users.php';</script>";
                 }
             }
         }
+
+
+
+
+
 
         
         public function insertTrophy(){
@@ -106,12 +111,11 @@
                         echo "<script>alert('Rigjistrimi u be me sukses');</script>";
                         echo "<script>window.location.href = 'trofet.php';</script>";
                 }
-            }
-            else{
-                    //echo "<script>alert('Rigjistrimi i sliderit nuk u be');</script>";
-                    //echo "<script>window.location.href = 'trofet.php';</script>";
-            }
-            
+                else{
+                    echo "<script>alert('Rigjistrimi i sliderit nuk u be');</script>";
+                    echo "<script>window.location.href = 'trofet.php';</script>";
+                }
+            }   
         }
         
 
@@ -134,7 +138,23 @@
             }
         }
         
+        public function insertPosts(){
+            if(isset($_POST['shtoPostin'])){
+                $year = $_POST['year'];
+                $content = $_POST['content'];
 
+                $query = "INSERT INTO post(year,content) VALUES('$year','$content')";
+
+                if($sql = $this->conn->query($query)){
+                        echo "<script>alert('Rigjistrimi u be me sukses');</script>";
+                        echo "<script>window.location.href = 'posts.php';</script>";
+                }
+                else{
+                    echo "<script>alert('Rigjistrimi i postit nuk u be');</script>";
+                    echo "<script>window.location.href = 'posts.php';</script>";
+                }
+            }   
+        }
 
 
 

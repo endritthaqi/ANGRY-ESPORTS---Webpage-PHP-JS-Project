@@ -88,8 +88,12 @@
             <!-- Modal for adding new post -->
             <div class="modal hidden">
                 <div class="modal-content">
-                    <form id="add-post-form">
-
+                    <form id="add-post-form" method="POST" action="" >
+                        <?php
+                            include '../modelcontroller/model.php';
+                            $model = new Model();
+                            $shtoPoste=$model->insertPosts();
+                        ?>
                         <label style="font-size: 1.5em;" for="newpostttt"><i class='bx bxs-file'></i>Add New
                             Post</label>
                         <br>
@@ -98,7 +102,7 @@
                         <input type="text" id="year" name="year" required>
                         <label for="content">Content:</label>
                         <textarea id="content" name="content" required></textarea><br>
-                        <button type="submit">Add Post</button>
+                        <button name="shtoPostin" type="submit">Add Post</button>
                     </form>
                 </div>
             </div>
@@ -116,8 +120,7 @@
                 </thead>
                 <tbody>
                 <?php
-                    include '../modelcontroller/model.php';
-                    $model = new Model();
+                    
                     $rows = $model->fetchPosts();
                     $i = 1;
                     if(!empty($rows)){
