@@ -1,0 +1,110 @@
+/* Style the form container */
+.form-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+}
+
+/* Style the form inputs */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+/* Style the form label */
+label {
+  font-weight: bold;
+}
+
+/* Style the form submit button */
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.formSHTIMIuserav {
+  margin-top: 80px;
+  max-width: 400px;
+}
+
+/* -------------------------- */
+/* CLASSES TO MAKE MODAL WORK */
+.show-modal {
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.75rem 3.5rem;
+  margin: 5rem 2rem;
+  border: none;
+  background-color: #fff;
+  color: #444;
+  border-radius: 10rem;
+  cursor: pointer;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* -------------------------- */
+/* CLASSES TO MAKE MODAL WORK */
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 34%;
+
+  background-color: white;
+  padding-left: 6rem;
+  padding-bottom: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 1110;
+  margin-top: 50px;
+}
+
+.form-group {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  backdrop-filter: blur(3px);
+  z-index: 5;
+  width: max-content;
+  height: max-content;
+}
