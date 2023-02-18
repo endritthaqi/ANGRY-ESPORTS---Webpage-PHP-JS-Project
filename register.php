@@ -52,7 +52,6 @@
     <div id="loginform">
       <div id="loginform1">
         <h1><b>CREATE ACCOUNT</b></h1>
-<<<<<<< HEAD
         <?php
               include 'modelcontroller/model.php';
               $model = new Model();
@@ -97,40 +96,6 @@
           /><br /><br />
           <h6>
         </form>
-=======
-        <input
-          class="empws"
-          id="firstname3"
-          type="text"
-          placeholder="  First Name"
-        /><br />
-        <input
-          class="empws"
-          id="un"
-          type="username"
-          placeholder="  Username"
-        /><br />
-        <input
-          class="empws"
-          id="em1"
-          type="email"
-          placeholder="Enter email"
-        /><br />
-        <input
-          class="empws"
-          id="pw1"
-          type="password"
-          placeholder="Enter password"
-        /><br />
-        <input
-          class="empws"
-          id="submiti1"
-          type="submit"
-          value="CREATE"
-          onclick="validoMeRegex()"
-        /><br /><br />
-        <h6>
->>>>>>> f2bdb92ab3f9746d1ea1074a3f9234caaed1ad82
           <a href="login.php"
             ><strong style="color: rgb(250, 0, 0)">Return to Login!</strong></a
           >
