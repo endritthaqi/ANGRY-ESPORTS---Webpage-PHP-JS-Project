@@ -19,13 +19,13 @@
 
 <body>
     <header>
-        <a href="index.php" class="logo"><img src="/img/angry2022logo.png" alt="LOGO"
+        <a href="../index.php" class="logo"><img src="/img/angry2022logo.png" alt="LOGO"
                 style="width: 155px; height: 75px" /></a>
 
         <div class="navbar">
-            <li><a href="/index.php">Home</a></li>
-            <li><a href="/teams.php">Teams</a></li>
-            <li><a href="/aboutus.php">About Angry</a></li>
+            <li><a href="../index.php">Home</a></li>
+            <li><a href="../teams.php">Teams</a></li>
+            <li><a href="../aboutus.php">About Angry</a></li>
         </div>
 
         <div class="nav-logreg">
@@ -70,13 +70,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="web_settings.php">
-                            <i class="bx bxs-cog"></i> PageSettings
+                        <a href="sliderimages.php">
+                            <i class="bx bxs-image-alt"></i> SliderImages
                         </a>
                     </li>
                     <li>
-                        <a href="sliderimages.php">
-                            <i class="bx bxs-image-alt"></i> SliderImages
+                        <a href="web_settings.php">
+                            <i class="bx bxs-cog"></i> WebSettings
                         </a>
                     </li>
                 </ul>
@@ -269,10 +269,10 @@
         <div class="foot1">
             <h3>ANGRY ESPORTS</h3>
             <ul>
-                <li><a href="/index.php">Home</a></li>
+                <li><a href="../index.php">Home</a></li>
                 <li><a href="#">Shop</a></li>
-                <li><a href="/teams.php">Teams</a></li>
-                <li><a href="/aboutus.php">About Us</a></li>
+                <li><a href="../teams.php">Teams</a></li>
+                <li><a href="../aboutus.php">About Us</a></li>
             </ul>
         </div>
         <div id="shopf" class="foot1">
