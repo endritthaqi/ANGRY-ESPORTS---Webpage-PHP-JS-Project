@@ -205,6 +205,23 @@
             return $data;
         }
 
+        public function counterUserPostTrophySlider(){
+            $data = null;
+            $query = "SELECT 
+            (SELECT COUNT(*) FROM user) AS user_count,
+            (SELECT COUNT(*) FROM post) AS post_count,
+            (SELECT COUNT(*) FROM trophy) AS trophy_count,
+            (SELECT COUNT(*) FROM sliderimg) AS slider_count;";
+
+            if($sql = $this->conn->query($query)){
+                while($row = mysqli_fetch_assoc($sql)){
+                    $data[] = $row;
+                }
+            }
+            return $data;
+        }
+
+
 
  
         public function delete($id){

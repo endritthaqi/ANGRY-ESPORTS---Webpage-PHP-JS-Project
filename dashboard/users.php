@@ -177,7 +177,7 @@
                     <?php if($row['profili'] != null){?>
                             <td><img src="/dashboard/<?php echo $row['profili']; ?>" alt="Photo"></td>
                         <?php } else{?>
-                            <td><img src="/dashboard/uploads/userprofile.png" alt="Placeholder Image"></td>
+                            <td><img src="/dashboard/uploads/userimg/userprofile.png" alt="Placeholder Image"></td>
                         <?php } 
                         ?>
                     

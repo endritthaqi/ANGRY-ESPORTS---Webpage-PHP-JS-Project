@@ -81,6 +81,11 @@
                 </ul>
             </div>
         </div>
+        <?php
+            include '../modelcontroller/model.php';
+            $model = new Model();
+            $rows = $model->counterUserPostTrophySlider();
+        ?>
         <div class="dashboard">
             <div class="row">
                 <div class="col">
@@ -90,7 +95,14 @@
                             <i class='bx bx-user'></i>
                         </div>
                         <div class="card-body">
-                            <h2>50</h2>
+                        
+                        <?php if ($rows): ?>
+                        <h2><?php foreach($rows as $row){ 
+                            echo $row['user_count'];
+                        }?></h2>
+                        <?php else: ?>
+                        <p>No data found.</p>
+                        <?php endif; ?>
                             <a href="users.php" class="btn-view-details">
                                 <i class='bx bx-show'></i>
                                 View Details
@@ -105,7 +117,13 @@
                             <i class='bx bx-file'></i>
                         </div>
                         <div class="card-body">
-                            <h2>100</h2>
+                            <?php if ($rows): ?>
+                            <h2><?php foreach($rows as $row){ 
+                                echo $row['post_count'];
+                            }?></h2>
+                            <?php else: ?>
+                            <p>No data found.</p>
+                            <?php endif; ?>
                             <a href="posts.php" class="btn-view-details">
                                 <i class='bx bx-show'></i>
                                 View Details
@@ -120,7 +138,13 @@
                             <i class='bx bx-trophy'></i>
                         </div>
                         <div class="card-body">
-                            <h2>250</h2>
+                            <?php if ($rows): ?>
+                            <h2><?php foreach($rows as $row){ 
+                                echo $row['trophy_count'];
+                            }?></h2>
+                            <?php else: ?>
+                            <p>No data found.</p>
+                            <?php endif; ?>
                             <a href="trofet.php" class="btn-view-details">
                                 <i class='bx bx-show'></i>
                                 View Details
@@ -136,7 +160,13 @@
                             <i class='bx bxs-image-alt'></i>
                         </div>
                         <div class="card-body">
-                            <h2>4</h2>
+                            <?php if ($rows): ?>
+                            <h2><?php foreach($rows as $row){ 
+                                echo $row['slider_count'];
+                            }?></h2>
+                            <?php else: ?>
+                            <p>No data found.</p>
+                            <?php endif; ?>
                             <a href="sliderimages.php" class="btn-view-details">
                                 <i class='bx bx-show'></i>
                                 View Details
