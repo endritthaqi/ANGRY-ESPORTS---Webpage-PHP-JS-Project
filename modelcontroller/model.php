@@ -117,6 +117,56 @@
                 }
             }   
         }
+
+
+
+        public function updateWebSettings(){
+            if(isset($_POST['updateWebSettings'])){
+                $title = $_POST['title'];
+                $instagram = $_POST['instagram'];
+                $youtube = $_POST['youtube'];
+                $twitch = $_POST['twitch'];
+                $discord = $_POST['discord'];
+                $twitter = $_POST['twitter'];
+                $facebook = $_POST['facebook'];
+                
+                
+                
+
+                if(!empty($_FILES['logo']['tmp_name'])){
+                    $weblogo = $_FILES['logo']['name'];
+                    $path = 'uploads/trophyimg/'.$weblogo;
+                    move_uploaded_file($_FILES['logo']['tmp_name'], $path);
+                    $logoPath = $path;
+                }
+                else{
+                    $queryy = "SELECT web_logo FROM websettings";
+                    $result = $this->conn->query($queryy);
+                    if($result->num_rows>0){
+                        $row = $result->fetch_assoc();
+                        $existingLogoPathFromDatabase = $row["web_logo"];
+                    }
+
+                    $logoPath = $existingLogoPathFromDatabase;
+                }
+
+
+
+                $query = "UPDATE websettings SET web_title='$title',web_instagram='$instagram',
+                web_youtube='$youtube',web_twitch='$twitch',web_discord='$discord',web_twitter='$twitter',
+                web_facebook='$facebook',web_logo='$logoPath'";
+
+                if($sql = $this->conn->query($query)){
+                        
+                        echo "<script>alert('Update u be me sukses');</script>";
+                        echo "<script>window.location.href = 'web_settings.php';</script>";
+                }
+                else{
+                    echo "<script>alert('Update nuk u be');</script>";
+                    echo "<script>window.location.href = 'web_settings.php';</script>";
+                }
+            }   
+        }
         
 
 
@@ -204,6 +254,21 @@
             }
             return $data;
         }
+
+        public function fetchWebSettings(){
+            $data = null;
+            $query = "SELECT * FROM websettings";
+            if ($sql = $this->conn->query($query)) {
+                while ($row = mysqli_fetch_assoc($sql)) {
+                    $data[] = $row;
+                }
+            }
+            return $data;
+        }
+        
+
+
+
 
         public function counterUserPostTrophySlider(){
             $data = null;

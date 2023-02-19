@@ -13,7 +13,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
     <link rel="icon" href="img/angry2022logo.png" />
+    <style>
 
+        .logo-preview img{
+            padding-right:60px;
+        }
+    </style>
     <title>ANGRY E-SPORTS</title>
 </head>
 
@@ -71,7 +76,7 @@
                     </li>
                     <li>
                         <a href="web_settings.php" class="active">
-                            <i class="bx bxs-cog"></i> PageSettings
+                            <i class="bx bxs-cog"></i> WebSettings
                         </a>
                     </li>
                     <li>
@@ -84,52 +89,69 @@
         </div>
 
 
-
-        <div class="pageSETTINGform">
-            <div class="page-settings-form">
-                <div class="logo-preview">
-                    <img src="https://via.placeholder.com/200" alt="Logo preview">
+        <?php
+            include '../modelcontroller/model.php';
+            $model = new Model();
+            $rows = $model->fetchWebSettings();
+            $update = $model->updateWebSettings();
+        ?>
+        
+            <div class="pageSETTINGform">
+                <div class="page-settings-form">
+                        <?php 
+                            if(!empty($rows)){
+                            foreach($rows as $row){
+                        ?>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="logo-preview">
+                        <img src="<?php echo $row['web_logo']; ?>" alt="Logo preview" style="height:200px; width:300px">
+                    </div>
+                    <h2>Web Settings</h2>
+                    <div class="form-group">
+                        <label for="title"><i class='bx bxs-font'></i>Title</label>
+                        <input type="text" id="title" name="title" value="<?php echo $row['web_title']; ?>">
+                    
+                    </div>
+                    <div class="form-group social-media">
+                        <label for="instagram"><i class='bx bxl-instagram'></i>Instagram</label>
+                        <input type="text" id="instagram" name="instagram" value="<?php echo $row['web_instagram']; ?>">
+                    </div>
+                    <div class="form-group social-media">
+                        <label for="youtube"><i class='bx bxl-youtube'></i>YouTube</label>
+                        <input type="text" id="youtube" name="youtube" value="<?php echo $row['web_youtube']; ?>">
+                    </div>
+                    <div class="form-group social-media">
+                        <label for="twitch"><i class='bx bxl-twitch'></i>Twitch</label>
+                        <input type="text" id="twitch" name="twitch" value="<?php echo $row['web_twitch']; ?>">
+                    </div>
+                    <div class="form-group social-media">
+                        <label for="discord"><i class='bx bxl-discord'></i>Discord</label>
+                        <input type="text" id="discord" name="discord" value="<?php echo $row['web_discord']; ?>">
+                    </div>
+                    <div class="form-group social-media">
+                        <label for="twitter"><i class='bx bxl-twitter'></i>Twitter</label>
+                        <input type="text" id="twitter" name="twitter" value="<?php echo $row['web_twitter']; ?>">
+                    </div>
+                    <div class="form-group social-media">
+                        <label for="facebook"><i class='bx bxl-facebook'></i>Facebook</label>
+                        <input type="text" id="facebook" name="facebook" value="<?php echo $row['web_facebook']; ?>">
+                    </div>
+                    <div class="form-group" id="logoSELECT">
+                        <label for="logo"><i class='bx bxs-camera'></i>Logo</label>
+                        <input type="file" id="logo" name="logo">
+                    </div>
+                    <button type="submit" name="updateWebSettings"><i class='bx bxs-save' ></i>Save Changes</button>
+                    </form>
+                    <?php
+                        }
+                            }
+                            else{
+                            echo "no data";
+                        }
+                    ?>   
                 </div>
-                <h2>Page Settings</h2>
-                <div class="form-group">
-                    <label for="title"><i class='bx bxs-font'></i>Title</label>
-                    <input type="text" id="title" name="title" value="My Page Title">
-                </div>
-                <div class="form-group">
-                    <label for="address"><i class='bx bxs-map'></i>Address</label>
-                    <input type="text" id="address" name="address" value="123 Main St, New York, NY 10001">
-                </div>
-                <div class="form-group social-media">
-                    <label for="instagram"><i class='bx bxl-instagram'></i>Instagram</label>
-                    <input type="text" id="instagram" name="instagram" value="https://www.instagram.com/">
-                </div>
-                <div class="form-group social-media">
-                    <label for="youtube"><i class='bx bxl-youtube'></i>YouTube</label>
-                    <input type="text" id="youtube" name="youtube" value="https://www.youtube.com/">
-                </div>
-                <div class="form-group social-media">
-                    <label for="twitch"><i class='bx bxl-twitch'></i>Twitch</label>
-                    <input type="text" id="twitch" name="twitch" value="https://www.twitch.tv/">
-                </div>
-                <div class="form-group social-media">
-                    <label for="discord"><i class='bx bxl-discord'></i>Discord</label>
-                    <input type="text" id="discord" name="discord" value="https://discord.com/">
-                </div>
-                <div class="form-group social-media">
-                    <label for="twitter"><i class='bx bxl-twitter'></i>Twitter</label>
-                    <input type="text" id="twitter" name="twitter" value="https://twitter.com/">
-                </div>
-                <div class="form-group social-media">
-                    <label for="facebook"><i class='bx bxl-facebook'></i>Facebook</label>
-                    <input type="text" id="facebook" name="facebook" value="https://www.facebook.com/">
-                </div>
-                <div class="form-group" id="logoSELECT">
-                    <label for="logo"><i class='bx bxs-camera'></i>Logo</label>
-                    <input type="file" id="logo" name="logo">
-                </div>
-                <button type="submit"><i class='bx bxs-save'></i>Save Changes</button>
             </div>
-        </div>
+        
 
 
 
