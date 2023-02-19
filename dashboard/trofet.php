@@ -131,9 +131,7 @@
                 </thead>
                 <tbody>
                     
-                <?php
-    
-                    
+                    <?php
                     $rows = $model->fetchTrophy();
                     $i = 1;
                     if(!empty($rows)){

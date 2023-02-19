@@ -85,21 +85,29 @@
         <h1 style="color: black">DRIVEN BY</h1>
         <h1 style="color: red">COMPETITION</h1>
       </div>
+      <?php
+          include 'modelcontroller/model.php';
+          $model = new Model();
+          $rows = $model->fetchTrophy();
+      ?>
+
+      <?php 
+      if(!empty($rows)){
+        foreach($rows as $row){
+      
+      ?>
       <div class="tournaments">
-        <img src="/img/ramadanproleague.png" alt="rpl" />
-        <h4>RAMADAN Pro League</h4>
-        <p>1st place</p>
+        <img src="/img/ramadanproleague.png" alt="<?php echo $row['trophy_name'];?>" />
+        <h4><?php echo $row['trophy_name']; ?></h4>
+        <p><?php echo $row['trophy_place']; ?></p>
+
       </div>
-      <div class="tournaments">
-        <img src="/img/angrymastersleague.png" alt="aml" />
-        <h4>ANGRY Masters League</h4>
-        <p>1st place</p>
-      </div>
-      <div class="tournaments">
-        <img src="/img/valxp-175x175.png" alt="valxp" />
-        <h4>KOS ICT Champions</h4>
-        <p>3rd&4th place</p>
-      </div>
+      <?php
+          }
+      }else{
+          echo "no data";
+      }
+      ?>
     </div>
     <div id="babafooterit">
       <div id="reddjatht2"></div>
@@ -208,14 +216,12 @@
     
     <script> 
       <?php 
-        include '../htdocs/modelcontroller/model.php';
-        $model = new Model();
-        $rows = $model->fetchSlider();
+        $slidet = $model->fetchSlider();
       ?>
       //SCRIPTA per IMGslider
       var varguImg = [];
       
-      <?php foreach($rows as $row){?>
+      <?php foreach($slidet as $row){?>
       varguImg.push("dashboard/<?php echo $row['imgpath']; ?>");<?php }?>
 
         var index = 0;
