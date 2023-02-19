@@ -1,4 +1,4 @@
-
+<?php include 'modelcontroller/model.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -80,34 +80,13 @@
       </div>
     </div>
 
-    <div id="kupa">
-      <div class="tournaments">
-        <h1 style="color: black">DRIVEN BY</h1>
-        <h1 style="color: red">COMPETITION</h1>
-      </div>
-      <?php
-          include 'modelcontroller/model.php';
-          $model = new Model();
-          $rows = $model->fetchTrophy();
-      ?>
 
-      <?php 
-      if(!empty($rows)){
-        foreach($rows as $row){
-      
-      ?>
-      <div class="tournaments">
-        <img src="/img/ramadanproleague.png" alt="<?php echo $row['trophy_name'];?>" />
-        <h4><?php echo $row['trophy_name']; ?></h4>
-        <p><?php echo $row['trophy_place']; ?></p>
+    <?php
+      include 'includes/kupa.php';
+    ?>
 
-      </div>
-      <?php
-          }
-      }else{
-          echo "no data";
-      }
-      ?>
+
+
     </div>
     <div id="babafooterit">
       <div id="reddjatht2"></div>
@@ -216,7 +195,8 @@
     
     <script> 
       <?php 
-        $slidet = $model->fetchSlider();
+        $modelSlideri = new Model();
+        $slidet = $modelSlideri->fetchSlider();
       ?>
       //SCRIPTA per IMGslider
       var varguImg = [];
