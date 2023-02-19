@@ -1,3 +1,4 @@
+<?php include 'modelcontroller/model.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -74,52 +75,14 @@
         </div>
       </div>
     </main>
-    <div id="bigachiv">
-      <h1 style="color: white; font-size: 1rem">PROUD OF</h1>
-      <div id="bigachivtitle">
-        <h2>BIGGEST <strong style="color: #ff050d">ACHIEVEMENTS</strong></h2>
-        <br />
-      </div>
-      <div id="achivplaces">
-        <div class="placeschild">
-          <h1>3</h1>
-          <h5>TEAMS</h5>
-        </div>
-        <div class="placeschild">
-          <h1>50+</h1>
-          <h5>1ST PLACES</h5>
-        </div>
-        <div class="placeschild">
-          <h1>200K+</h1>
-          <h5>REWARDS</h5>
-        </div>
-        <div class="placeschild">
-          <h1>500K+</h1>
-          <h5>FANS WORLDWIDE</h5>
-        </div>
-      </div>
-    </div>
 
-    <div id="kupa">
-      <div class="tournaments">
-        <h1 style="color: black">DRIVEN BY</h1>
-        <h1 style="color: red">COMPETITION</h1>
-      </div>
-      <div class="tournaments">
-        <img src="/img/ramadanproleague.png" alt="rpl" />
-        <h4>RAMADAN Pro League</h4>
-        <p>1st place</p>
-      </div>
-      <div class="tournaments">
-        <img src="/img/angrymastersleague.png" alt="aml" />
-        <h4>ANGRY Masters League</h4>
-        <p>1st place</p>
-      </div>
-      <div class="tournaments">
-        <img src="/img/valxp-175x175.png" alt="valxp" />
-        <h4>KOS ICT Champions</h4>
-        <p>3rd&4th place</p>
-      </div>
+
+    <?php
+      include 'includes/kupa.php';
+    ?>
+
+
+
     </div>
     <div id="babafooterit">
       <div id="reddjatht2"></div>

@@ -221,6 +221,20 @@
             return $data;
         }
 
+        public function trofetEfituaraDhefitimi(){
+            $data = null;
+            $query = "SELECT 
+            (SELECT COUNT(*) FROM trophy where trophy_place like '1%')AS trofet_e_fituara,
+            (SELECT SUM(trophy_prizepool) FROM trophy) AS shumaFituese;";
+
+            if($sql = $this->conn->query($query)){
+                while($row = mysqli_fetch_assoc($sql)){
+                    $data[] = $row;
+                }
+            }
+            return $data;
+        }
+        
 
 
  
@@ -233,6 +247,39 @@
                 return false;
             }
         }
+
+        public function deletePosts($id){
+ 
+            $query = "DELETE FROM post where id = '$id'";
+            if ($sql = $this->conn->query($query)) {
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function deleteTrophy($id){
+ 
+            $query = "DELETE FROM trophy where id = '$id'";
+            if ($sql = $this->conn->query($query)) {
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function deleteSlider($id){
+ 
+            $query = "DELETE FROM sliderimg where id = '$id'";
+            if ($sql = $this->conn->query($query)) {
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+
+
  
         public function edit($id){
  

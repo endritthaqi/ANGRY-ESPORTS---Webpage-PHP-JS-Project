@@ -138,7 +138,7 @@
                     <td>
 
                     <button>Edit</button>
-                    <button>Delete</button>
+                    <button onclick="window.location.href = 'delete_slider.php?id=<?php echo $row['id']; ?>'">Delete</button>
                     </td>
                     </tr>
 

@@ -145,8 +145,8 @@
                         <td><?php echo $row['trophy_prizepool']; ?></td>
                         <td><?php echo $row['trophy_author']; ?></td>
                         <td>
-                                <button class="btn-edit">Edit</button>
-                                <button class="btn-delete">Delete</button>
+                                <button class="btn-edit" >Edit</button>
+                                <button class="btn-delete" onclick="window.location.href = 'delete_trophy.php?id=<?php echo $row['id']; ?>'">Delete</button>
                         </td>
                     </tr>
 

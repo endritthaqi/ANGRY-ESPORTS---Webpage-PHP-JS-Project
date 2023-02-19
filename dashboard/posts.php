@@ -132,8 +132,9 @@
                     <td><?php echo $row['content']; ?></td>
                     <td><?php echo $row['author']; ?></td>
                     <td>
+                        
                             <button class="btn-edit">Edit</button>
-                            <button class="btn-delete">Delete</button>
+                            <button class="btn-delete" onclick="window.location.href = 'delete_posts.php?id=<?php echo $row['id']; ?>'">Delete</button>
                     </td>
                     </tr>
 

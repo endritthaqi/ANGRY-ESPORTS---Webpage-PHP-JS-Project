@@ -132,31 +132,6 @@
     </main>
 
 
-    <div id="bigachiv">
-      <h1 style="color: white; font-size: 1rem">PROUD OF</h1>
-      <div id="bigachivtitle">
-        <h2>BIGGEST <strong style="color: #ff050d">ACHIEVEMENTS</strong></h2>
-        <br />
-      </div>
-      <div id="achivplaces">
-        <div class="placeschild">
-          <h1>3</h1>
-          <h5>TEAMS</h5>
-        </div>
-        <div class="placeschild">
-          <h1>50+</h1>
-          <h5>1ST PLACES</h5>
-        </div>
-        <div class="placeschild">
-          <h1>200K+</h1>
-          <h5>REWARDS</h5>
-        </div>
-        <div class="placeschild">
-          <h1>500K+</h1>
-          <h5>FANS WORLDWIDE</h5>
-        </div>
-      </div>
-    </div>
 
     <?php
       include 'includes/kupa.php';
