@@ -16,6 +16,7 @@
 
         //INSERT, FETCH, EDIT, DELETE
 
+        // metoda insert eshte perdorur tek SIGNUP
         public function insert(){
             if(isset($_POST['submit'])){
 
@@ -24,28 +25,55 @@
                 $email = $_POST['email'];
                 $password = $_POST['password'];
 
-
-                $regexFIRSTNAME = '/^[a-zA-Z]+((\s[a-zA-Z]+){1,2})?$/'; // min 1 maxx 50
-                $regexUSERNAME = '/^[a-zA-Z0-9]{5,20}$/'; // mesepaku 5
-                $regexEMAIL = '/^[a-zA-Z][a-zA-Z0-9_.]+@[a-zA-Z0-9-]+\.(com|net)$/'; //email duhet te startoj me shkronje dhe ka @ dhe ends.com.net
-                $regexPASSWORD = '/^[A-Z][a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};\':"\\|,.<>\/?~]{6,}$/'; // min. 7 karaktere, karakteri i pare ne upper case dhe te ket 1num 1specchar
+                // $regexFIRSTNAME = '/^[a-zA-Z]+((\s[a-zA-Z]+){1,2})?$/'; // min 1 maxx 50
+                // $regexUSERNAME = '/^[a-zA-Z0-9]{5,20}$/'; // mesepaku 5
+                // $regexEMAIL = '/^[a-zA-Z][a-zA-Z0-9_.]+@[a-zA-Z0-9-]+\.(com|net)$/'; //email duhet te startoj me shkronje dhe ka @ dhe ends.com.net
+                // $regexPASSWORD = '/^[A-Z][a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};\':"\\|,.<>\/?~]{6,}$/'; // min. 7 karaktere, karakteri i pare ne upper case dhe te ket 1num 1specchar
         
-                if (!preg_match($regexFIRSTNAME, $name)) {
-                    //echo "<script>alert('Name is not valid, it should start with a capital letter and have at least 5 characters and a maximum of 15 characters');</script>";
-                    return;
+                // if (!preg_match($regexFIRSTNAME, $name)) {
+                //     //echo "<script>alert('Name is not valid, it should start with a capital letter and have at least 5 characters and a maximum of 15 characters');</script>";
+                //     exit();
+                // }
+                // if (!preg_match($regexUSERNAME, $username)) {
+                //     //echo "<script>alert('Username is not valid, it should contain only letters and numbers and have a minimum of 5 characters and a maximum of 20 characters');</script>";
+                //     return;
+                // }
+                // if (!preg_match($regexEMAIL, $email)) {
+                //     //echo "<script>alert('Email is not valid, it should start with a letter and have a valid email format (e.g. example@example.com or example@example.net)');</script>";
+                //     return;
+                // }
+                // if (!preg_match($regexPASSWORD, $password)) {
+                //     //echo "<script>alert('Password is not valid, it should contain at least 7 characters, start with a capital letter and have at least 1 number and 1 special character');</script>";
+                //     return;
+                // }
+
+                if(emptyInputSignup($name,$username,$email,$password) !== false){
+                    header("location:../register.php?error=emptyinput");
+                    exit();
                 }
-                if (!preg_match($regexUSERNAME, $username)) {
-                    //echo "<script>alert('Username is not valid, it should contain only letters and numbers and have a minimum of 5 characters and a maximum of 20 characters');</script>";
-                    return;
+                if(invalidFullname($name) !== false){
+                    header("location:../register.php?error=invalidfullname");
+                    exit();
                 }
-                if (!preg_match($regexEMAIL, $email)) {
-                    //echo "<script>alert('Email is not valid, it should start with a letter and have a valid email format (e.g. example@example.com or example@example.net)');</script>";
-                    return;
+                if(invalidUid($username) !== false){
+                    header("location:../register.php?error=invaliduid");
+                    exit();
                 }
-                if (!preg_match($regexPASSWORD, $password)) {
-                    //echo "<script>alert('Password is not valid, it should contain at least 7 characters, start with a capital letter and have at least 1 number and 1 special character');</script>";
-                    return;
+                if(invalidEmail($email) !== false){
+                    header("location:../register.php?error=invalidemail");
+                    exit();
                 }
+                if(invalidPassword($password) !== false){
+                    header("location:../register.php?error=invalidpassword");
+                    exit();
+                }
+
+                if(uidExists($conn,$username) !== false){
+                    header("location:../register.php?error=uidExists");
+                    exit();
+                }
+
+
 
 
 
@@ -58,8 +86,118 @@
                     echo "<script>alert('failed');</script>";
                     echo "<script>window.location.href = '../index.php';</script>";
                 }
+
+                
+            }
+            else{
+                header("location:../register.php");
             }
         }
+
+
+        public function emptyInputSignup($name,$username,$email,$password){
+            $result;
+            if(empty($name) || empty($username) || empty($email) || empty($password)){
+                $result= true;
+            }
+            else{
+                $result = false;
+            }
+            return $result;
+        }
+
+
+
+        public function invalidUid($username){
+            $result;
+            if(!preg_match("/^[a-zA-Z0-9]{5,20}$/"), $username){
+                $result= true;
+            }
+            else{
+                $result = false;
+            }
+            return $result;
+        }
+
+
+
+        public function invalidEmail($email){
+            $result;
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                $result= true;
+            }
+            else{
+                $result = false;
+            }
+            return $result;
+        }
+
+        public function invalidPassword($password){
+            $result;
+            if(!preg_match('/^[A-Z][a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};\':"\\|,.<>\/?~]{6,}$/'), $password){
+                $result= true;
+            }
+            else{
+                $result = false;
+            }
+            return $result;
+        }
+        public function invalidFullname($name){
+            $result;
+            if(!preg_match('/^[a-zA-Z]+((\s[a-zA-Z]+){1,2})?$/'), $name){
+                $result= true;
+            }
+            else{
+                $result = false;
+            }
+            return $result;
+        }
+
+
+        public function uidExists($username){
+            $query = "SELECT * FROM user WHERE username = ?";
+            if(!($sql = $this->conn->query($query))){
+                header("location:../register.php?error=stmtfailed");
+                exit();
+            }
+        }
+        
+        public function login(){
+            if(isset($_POST["login"])){
+                $email = $_POST["email"];
+                $password = $_POST["password"];
+
+                if(emptyInputLogin($email,$password) !== false){
+                    header("location:../login.php?error=emptyimput");
+                    exit();
+                }
+
+                loginUser($this->conn,$email,$password);
+            }
+            else{
+                header("location:../login.php");
+                exit();
+            }
+        }
+
+
+
+
+        public function emptyInputLogin($name,$username,$email,$password){
+            $result;
+            if(($email) || empty($password)){
+                $result= true;
+            }
+            else{
+                $result = false;
+            }
+            return $result;
+        }
+
+        public function loginUser($conn,$email,$password){
+            
+        }
+
         
 
         public function insertUseryy(){

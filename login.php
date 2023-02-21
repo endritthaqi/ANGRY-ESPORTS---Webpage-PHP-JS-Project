@@ -63,12 +63,14 @@
           id="em1"
           type="email"
           placeholder="Enter email"
+          name = "email"
         /><br />
         <input
           class="empws"
           id="pw1"
           type="password"
           placeholder="Enter password"
+          name = "password"
         /><br />
         <h6 id="forgotpw" style="color: rgb(250, 0, 0)">
           <a id="forgotpw1" href="login.php">Forgot your password?</a>
@@ -77,6 +79,7 @@
           class=""
           id="submiti"
           type="submit"
+          name="login"
           value="Login"
           onclick="validoMeRegex()"
         /><br />
