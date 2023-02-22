@@ -7,7 +7,7 @@ if (!(isset($_SESSION['role']))) {
     exit;
 }
 
-if ($_SESSION['role'] !== 2) {
+if ($_SESSION['role'] != 2) {
     header('Location: /dashboard/index.php');
     exit;
 }
@@ -70,7 +70,7 @@ if ($_SESSION['role'] !== 2) {
                             <i class="bx bxs-dashboard"></i> Dashboard
                         </a>
                     </li>
-                    <?php if ($_SESSION['role'] === 2): ?>
+                    <?php if ($_SESSION['role'] == 2): ?>
                     <li>
                         <a href="users.php" class="active">
                             <i class="bx bxs-user"></i> Userat
@@ -92,7 +92,7 @@ if ($_SESSION['role'] !== 2) {
                             <i class="bx bxs-image-alt"></i> SliderImages
                         </a>
                     </li>
-                    <?php if ($_SESSION['role'] === 2): ?>
+                    <?php if ($_SESSION['role'] == 2): ?>
                     <li>
                         <a href="web_settings.php">
                             <i class="bx bxs-cog"></i> WebSettings
