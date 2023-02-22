@@ -15,7 +15,7 @@
                 if(!empty($rowsWebSettings)){
                 foreach($rowsWebSettings as $row){
             ?>
-          <a href="#"
+          <a href="/index.php"
             ><img
               src="dashboard/<?php echo $row['web_logo']; ?>"
               alt="LOGIN"
