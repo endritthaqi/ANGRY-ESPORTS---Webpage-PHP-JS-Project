@@ -194,14 +194,66 @@
         //     return $result;
         // }
 
-        // public function loginUser($conn,$email,$password){
-        //     $uidExists = uidExists($conn, $)
-        // }
+        public function loginUser(){
+           if(isset($_POST['loginUsery'])){
+                session_start();
+                $email = $_POST['emaili'];
+                $password = $_POST['passwordi'];
+
+                $username = mysqli_real_escape_string($this->conn, $email);
+                $password = mysqli_real_escape_string($this->conn, $password);
+
+                $query = "SELECT * FROM user where email = '{$email}'";
+
+                $select_user_query = mysqli_query($this->conn, $query);
+
+                if(!$select_user_query){
+                    die("QUERY FAILED". mysqli_error($this->conn));
+                }
+                while($row = mysqli_fetch_array($select_user_query)){
+                    $user_id = $row['id'];
+                    $user_fullname = $row['fullname'];
+                    $user_name = $row['username'];
+                    $user_email = $row['email'];
+                    $user_password = $row['password'];
+                    $user_cityy = $row['qyteti'];
+                    $user_fshatyy = $row['fshati'];
+                    $user_zipcody = $row['zipkodi'];
+                    $user_role = $row['roli'];
+                    $user_profile = $row['profili'];
+                }
+
+                if($email !== $user_email  && $password !== $user_password){
+                    header("Location: ../login.php");
+                }
+                else if($email === $user_email  && $password === $user_password){
+                    header("Location: ../dashboard/index.php");
+
+                    $_SESSION['id']= $user_id;
+                    $_SESSION['fullname']= $user_fullname;
+                    $_SESSION['username'] = $user_name;
+                    $_SESSION['email'] = $user_email;
+                    $_SESSION['password'] = $user_password;
+                    $_SESSION['qytety'] = $user_cityy;
+                    $_SESSION['fshaty'] = $user_fshatyy;
+                    $_SESSION['zipkody'] = $user_zipcody;
+                    $_SESSION['role'] = $user_role;
+                    $_SESSION['profile'] = $user_profile; 
+
+                }
+                else{
+                    header("Location: ../login.php");
+                }
+                    
+           }  
+        }
 
         
 
         public function insertUseryy(){
             if(isset($_POST['shtojeUserin'])){
+
+                 
 
                 $fullname = $_POST['fullname'];
                 $username = $_POST['username'];

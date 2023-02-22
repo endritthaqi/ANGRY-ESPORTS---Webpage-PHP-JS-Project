@@ -58,31 +58,40 @@
             ><strong style="color: red">Create an account!</strong></a
           >
         </h6>
-        <input
-          class="empws"
-          id="em1"
-          type="email"
-          placeholder="Enter email"
-          name = "email"
-        /><br />
-        <input
-          class="empws"
-          id="pw1"
-          type="password"
-          placeholder="Enter password"
-          name = "password"
-        /><br />
-        <h6 id="forgotpw" style="color: rgb(250, 0, 0)">
-          <a id="forgotpw1" href="login.php">Forgot your password?</a>
-        </h6>
-        <input
-          class=""
-          id="submiti"
-          type="submit"
-          name="login"
-          value="Login"
-          onclick="validoMeRegex()"
-        /><br />
+        <?php
+              include 'modelcontroller/model.php';
+              $modelLogin = new Model();
+              $loginy = $modelLogin->loginUser();
+        ?>
+        <form action="" method="POST">
+
+            <input
+              class="empws"
+              id="em1"
+              type="email"
+              placeholder="Enter email"
+              name = "emaili"
+            /><br />
+            <input
+              class="empws"
+              id="pw1"
+              type="password"
+              placeholder="Enter password"
+              name = "passwordi"
+            /><br />
+            <h6 id="forgotpw" style="color: rgb(250, 0, 0)">
+              <a id="forgotpw1" href="login.php">Forgot your password?</a>
+            </h6>
+            <input
+              class=""
+              id="submiti"
+              type="submit"
+              name="loginUsery"
+              value="Login"
+              onclick="validoMeRegex()"
+            /><br />
+        </form>
+        
       </div>
     </div>
     <div class="bardhoshi"></div>

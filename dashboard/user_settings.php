@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +31,7 @@
 
         <div class="nav-logreg">
             <a href="user_settings.php">
-                <img src="https://via.placeholder.com/150x150" alt="Placeholder Image" style="height: 40px" />
+                <img src="<?php echo $_SESSION['profile'] ?>" alt="Placeholder Image" style="height: 40px;width: 65px;border-radius: 50%;overflow: hidden" />
             </a>
 
 
@@ -87,26 +89,26 @@
 
         <div class="user-settings-form">
             <div class="photo-preview">
-                <img src="https://via.placeholder.com/200" alt="Profile photo">
+                <img src="<?php echo $_SESSION['profile'] ?>" alt="Profile photo">
 
             </div>
 
             <h2>User Settings</h2>
             <div class="form-group">
                 <label for="id"><i class='bx bxs-user'></i>ID</label>
-                <input type="text" id="id" name="id" value="123456" readonly>
+                <input type="text" id="id" name="id" value="<?php echo $_SESSION['id'] ?>" readonly>
             </div>
             <div class="form-group">
                 <label for="fullname"><i class='bx bxs-user-detail'></i>Full Name</label>
-                <input type="text" id="fullname" name="fullname" value="John Doe">
+                <input type="text" id="fullname" name="fullname" value="<?php echo $_SESSION['fullname'] ?>">
             </div>
             <div class="form-group">
                 <label for="username"><i class='bx bxs-user'></i>Username</label>
-                <input type="text" id="username" name="username" value="johndoe">
+                <input type="text" id="username" name="username" value="<?php echo $_SESSION['username'] ?>">
             </div>
             <div class="form-group">
                 <label for="email"><i class='bx bxs-envelope'></i>Email</label>
-                <input type="email" id="email" name="email" value="johndoe@example.com">
+                <input type="email" id="email" name="email" value="<?php echo $_SESSION['email'] ?>">
             </div>
             <div class="form-group">
                 <label for="password"><i class='bx bxs-lock-alt'></i>Password</label>
@@ -114,19 +116,19 @@
             </div>
             <div class="form-group">
                 <label for="city"><i class='bx bxs-city'></i>City</label>
-                <input type="text" id="city" name="city" value="New York">
+                <input type="text" id="city" name="city" value="<?php echo $_SESSION['qytety'] ?>">
             </div>
             <div class="form-group">
                 <label for="fshat"><i class='bx bxs-flag-alt'></i>Fshati</label>
-                <input type="text" id="fshat" name="fshat" value="NY">
+                <input type="text" id="fshat" name="fshat" value="<?php echo $_SESSION['fshaty'] ?>">
             </div>
             <div class="form-group">
                 <label for="zipcode"><i class='bx bxs-map'></i>Zip Code</label>
-                <input type="text" id="zipcode" name="zipcode" value="10001">
+                <input type="text" id="zipcode" name="zipcode" value="<?php echo $_SESSION['zipkody'] ?>">
             </div>
             <div class="form-group" id="fotoSELECT">
                 <label for="photo"><i class='bx bxs-camera'></i>Photo</label>
-                <input type="file" id="photo" name="photo">
+                <input type="file" id="photo" name="photo" >
             </div>
             <button type="submit"><i class='bx bxs-save'></i>Save Changes</button>
         </div>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +30,7 @@
 
         <div class="nav-logreg">
             <a href="user_settings.php">
-                <img src="https://via.placeholder.com/150x150" alt="Placeholder Image" style="height: 40px" />
+                <img src="<?php echo $_SESSION['profile'] ?>" alt="Placeholder Image" style="height: 40px;width: 65px;border-radius: 50%;overflow: hidden" />
             </a>
 
 
@@ -87,6 +88,8 @@
             $rows = $model->counterUserPostTrophySlider();
         ?>
         <div class="dashboard">
+
+            <h2>Hello,<?php echo $_SESSION['fullname'] ?></h2>
             <div class="row">
                 <div class="col">
                     <div class="card">
