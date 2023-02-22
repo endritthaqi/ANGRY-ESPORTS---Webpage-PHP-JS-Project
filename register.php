@@ -104,7 +104,6 @@
     </div>
     <div id="zi"></div>
     <?php
-      include 'includes/kupa.php';
       include 'includes/footer.php';
     ?>
     <script src="script/script.js"></script>

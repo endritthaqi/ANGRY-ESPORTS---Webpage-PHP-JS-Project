@@ -9,16 +9,23 @@
     <footer>
       <div id="SOCIALMEDIA" class="foot1">
         <div id="fotosocmed">
+            <?php 
+		        $modelFooter = new Model();
+        	    $rowsWebSettings = $modelFooter->fetchWebSettings();
+                if(!empty($rowsWebSettings)){
+                foreach($rowsWebSettings as $row){
+            ?>
           <a href="#"
             ><img
-              src="/img/angry2022logo.png"
+              src="dashboard/<?php echo $row['web_logo']; ?>"
               alt="LOGIN"
               style="height: 100px"
           /></a>
+          
         </div>
         <div id="mediat">
           <li>
-            <a href="https://www.instagram.com/angryteam.pubgm/"
+            <a href="<?php echo $row['web_instagram']; ?>"
               ><h1>
                 <i
                   class="bx bxl-instagram"
@@ -28,7 +35,7 @@
             ></a>
           </li>
           <li>
-            <a href="https://www.youtube.com/@angryteam9441"
+            <a href="<?php echo $row['web_youtube']; ?>"
               ><h1>
                 <i
                   class="bx bxl-youtube"
@@ -38,7 +45,7 @@
             ></a>
           </li>
           <li>
-            <a href="https://twitter.com/AngryteamV"
+            <a href="<?php echo $row['web_twitter']; ?>"
               ><h1>
                 <i
                   class="bx bxl-twitter"
@@ -48,7 +55,7 @@
             ></a>
           </li>
           <li>
-            <a href="https://www.twitch.tv/imtibu"
+            <a href="<?php echo $row['web_twitch']; ?>"
               ><h1>
                 <i
                   class="bx bxl-twitch"
@@ -58,7 +65,7 @@
             ></a>
           </li>
           <li>
-            <a href="https://trovo.live/s/angryRABBIT"
+            <a href="<?php echo $row['web_facebook']; ?>"
               ><h1>
                 <i
                   class="bx bxl-facebook"
@@ -68,7 +75,7 @@
             ></a>
           </li>
           <li>
-            <a href="https://discord.gg/angryesports"
+            <a href="<?php echo $row['web_discord']; ?>"
               ><h1>
                 <i
                   class="bx bxl-discord"
@@ -76,7 +83,15 @@
                   onmouseout="this.style.color='white'"
                 ></i></h1
             ></a>
+            <?php
+                }
+                    }
+                    else{
+                    echo "no data";
+                }
+            ?> 
           </li>
+          
         </div>
       </div>
       <div class="foot1">
