@@ -1,4 +1,18 @@
-<?php session_start(); ?>
+<?php 
+
+session_start(); 
+
+if (!(isset($_SESSION['roli']))) {
+    header('Location: ../logout.php');
+    exit;
+}
+
+if ($_SESSION['roli'] !== 2) {
+    header('Location: /dashboard/index.php');
+    exit;
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,11 +70,13 @@
                             <i class="bx bxs-dashboard"></i> Dashboard
                         </a>
                     </li>
+                    <?php if ($_SESSION['role'] === 2): ?>
                     <li>
                         <a href="users.php" class="active">
                             <i class="bx bxs-user"></i> Userat
                         </a>
                     </li>
+                    <?php endif; ?>
                     <li>
                         <a href="posts.php">
                             <i class="bx bxs-file"></i> Postet
@@ -99,6 +115,7 @@
                             $model = new Model();
                             $shtoUseryn = $model->insertUseryy();
                         ?>
+                        
                         <form action="" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="fullname"><i class='bx bxs-user-detail'></i>Full Name</label>
