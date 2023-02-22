@@ -1,5 +1,5 @@
 <?php session_start(); 
-if ((isset($_SESSION['role']))) {
+if (!(isset($_SESSION['role']))) {
     header('Location: ../logout.php');
     exit;
 }
@@ -34,19 +34,17 @@ if ((isset($_SESSION['role']))) {
         </div>
 
         <div class="nav-logreg">
-            <a href="user_settings.php">
-                <img src="<?php echo $_SESSION['profile'] ?>" alt="Placeholder Image" style="height: 40px;width: 65px;border-radius: 50%;overflow: hidden" />
-            </a>
-
-
-            <a href="/logout.php" style="color:black">
-                <i class="bx bx-log-out"></i> Logout
-            </a>
-
             <a href="#"><img src="/img/bxs-cart.svg" alt="SHOP" style="height: 30px" /></a>
             <div id="menu">
                 <a href="#"><img src="/img/bx-menu.svg" alt="MENU" style="height: 30px" /></a>
             </div>
+
+            <a href="user_settings.php">
+                <img src="<?php echo $_SESSION['profile'] ?>" alt="Placeholder Image" style="height: 40px;width: 65px;border-radius: 50%;overflow: hidden" />
+            </a>
+            <a href="/logout.php" style="color:black">
+                <i class="bx bx-log-out"></i> Logout
+            </a>
         </div>
     </header>
     <div class="sidebarANDcontent">

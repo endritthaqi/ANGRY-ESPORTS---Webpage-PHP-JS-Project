@@ -1,4 +1,11 @@
 <?php session_start(); ?>
+<?php include 'modelcontroller/model.php'; ?>
+<?php  
+if (isset($_SESSION['role'])) {
+    header('Location: /dashboard/');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,39 +24,21 @@
       rel="stylesheet"
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
     />
-    <link rel="icon" href="img/angry2022logo.png" />
 
-    <title>ANGRY E-SPORTS</title>
-  </head>
-  <body>
-    <header>
-      <a href="index.php" class="logo"
-        ><img
-          src="/img/angry2022logo.png"
-          alt="LOGO"
-          style="width: 155px; height: 75px"
-      /></a>
 
+    <?php
+      include 'includes/top-header.php';
+    ?>
       <div class="navbar">
         <li><a href="/index.php">Home</a></li>
         <li><a href="/teams.php">Teams</a></li>
         <li><a href="/aboutus.php">About Angry</a></li>
       </div>
 
-      <div class="nav-logreg">
-        <a href="/login.php"
-          ><img src="/img/bxs-user.svg" alt="LOGIN" style="height: 30px"
-        /></a>
-        <a href="#"
-          ><img src="/img/bxs-cart.svg" alt="SHOP" style="height: 30px"
-        /></a>
-        <div id="menu">
-          <a href="#"
-            ><img src="/img/bx-menu.svg" alt="MENU" style="height: 30px"
-          /></a>
-        </div>
-      </div>
-    </header>
+    <?php
+      include 'includes/low-header.php';
+    ?>
+
     <div id="loginform">
       <div id="loginform1">
         <h1><b>LOGIN</b></h1>
@@ -60,9 +49,8 @@
           >
         </h6>
         <?php
-              include 'modelcontroller/model.php';
-              $modelLogin = new Model();
-              $loginy = $modelLogin->loginUser();
+  
+              $loginy = $modeli->loginUser();
         ?>
         <form action="" method="POST">
 

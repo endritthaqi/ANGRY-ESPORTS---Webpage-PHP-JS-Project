@@ -1,3 +1,6 @@
+<?php session_start(); 
+include 'modelcontroller/model.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,37 +21,18 @@
     />
     <link rel="icon" href="img/angry2022logo.png" />
 
-    <title>ANGRY E-SPORTS</title>
-  </head>
-  <body>
-    <header>
-      <a href="index.php" class="logo"
-        ><img
-          src="/img/angry2022logo.png"
-          alt="LOGO"
-          style="width: 155px; height: 75px"
-      /></a>
-
+    <?php
+      include 'includes/top-header.php';
+    ?>
       <div class="navbar">
         <li><a href="/index.php">Home</a></li>
         <li><a href="/teams.php">Teams</a></li>
         <li><a href="/aboutus.php" class="active">About Angry</a></li>
       </div>
 
-      <div class="nav-logreg">
-        <a href="/login.php"
-          ><img src="/img/bxs-user.svg" alt="LOGIN" style="height: 30px"
-        /></a>
-        <a href="#"
-          ><img src="/img/bxs-cart.svg" alt="SHOP" style="height: 30px"
-        /></a>
-        <div id="menu">
-          <a href="#"
-            ><img src="/img/bx-menu.svg" alt="MENU" style="height: 30px"
-          /></a>
-        </div>
-      </div>
-    </header>
+    <?php
+      include 'includes/low-header.php';
+    ?>
     <main>
       <div id="aboutus3">
         <img
@@ -97,9 +81,8 @@
         </div>
       </div>
       <?php
-          include 'modelcontroller/model.php';
-          $model = new Model();
-          $rows = $model->fetchPosts();
+          
+          $rows = $modeli->fetchPosts();
       ?>
 
 

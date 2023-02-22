@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php include 'modelcontroller/model.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,39 +18,18 @@
       rel="stylesheet"
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
     />
-    <link rel="icon" href="img/angry2022logo.png" />
-
-    <title>ANGRY E-SPORTS</title>
-  </head>
-  <body>
-    <header>
-      <a href="index.php" class="logo"
-        ><img
-          src="/img/angry2022logo.png"
-          alt="LOGO"
-          style="width: 155px; height: 75px"
-      /></a>
-
+    <?php
+      include 'includes/top-header.php';
+    ?>
       <div class="navbar">
         <li><a href="/index.php">Home</a></li>
         <li><a href="/teams.php" class="active">Teams</a></li>
         <li><a href="/aboutus.php">About Angry</a></li>
       </div>
 
-      <div class="nav-logreg">
-        <a href="/login.php"
-          ><img src="/img/bxs-user.svg" alt="LOGIN" style="height: 30px"
-        /></a>
-        <a href="#"
-          ><img src="/img/bxs-cart.svg" alt="SHOP" style="height: 30px"
-        /></a>
-        <div id="menu">
-          <a href="#"
-            ><img src="/img/bx-menu.svg" alt="MENU" style="height: 30px"
-          /></a>
-        </div>
-      </div>
-    </header>
+    <?php
+      include 'includes/low-header.php';
+    ?>
     <main>
       <div id="teams80">
         <h1 style="font-size: 4rem">
@@ -81,7 +61,7 @@
       include 'includes/kupa.php';
       include 'includes/footer.php';
     ?>
-    
+
     <script src="script/script.js"></script>
   </body>
 </html>
