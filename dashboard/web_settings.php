@@ -1,11 +1,11 @@
 <?php session_start(); 
 
-if (!(isset($_SESSION['roli']))) {
+if (!(isset($_SESSION['role']))) {
     header('Location: ../logout.php');
     exit;
 }
 
-if ($_SESSION['roli'] !== 2) {
+if ($_SESSION['role'] !== 2) {
     header('Location: /dashboard/index.php');
     exit;
 }

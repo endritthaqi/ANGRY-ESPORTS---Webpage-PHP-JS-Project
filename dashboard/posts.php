@@ -1,5 +1,5 @@
 <?php session_start(); 
-if (!(isset($_SESSION['roli']))) {
+if (!(isset($_SESSION['role']))) {
     header('Location: ../logout.php');
     exit;
 }
