@@ -83,11 +83,13 @@ if (!(isset($_SESSION['roli']))) {
                             <i class="bx bxs-image-alt"></i> SliderImages
                         </a>
                     </li>
+                    <?php if ($_SESSION['role'] === 2): ?>
                     <li>
                         <a href="web_settings.php">
                             <i class="bx bxs-cog"></i> WebSettings
                         </a>
                     </li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
