@@ -62,7 +62,7 @@ if (!(isset($_SESSION['role']))) {
                     </li>
                     <?php if ($_SESSION['role'] == 2): ?>
                     <li>
-                        <a href="users.php" class="active">
+                        <a href="users.php">
                             <i class="bx bxs-user"></i> Userat
                         </a>
                     </li>
