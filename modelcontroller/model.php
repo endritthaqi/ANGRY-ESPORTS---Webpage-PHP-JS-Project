@@ -581,6 +581,17 @@
             return $data;
         }
 
+        public function updatePost($data){
+               
+            $query = "UPDATE `post` SET `year` ='$data[year]',`content`='$data[content]' WHERE `id`='$data[id]'";
+            
+            if ($sql = $this->conn->query($query)) {
+                return true;
+            }else{
+                return false;
+            }
+        }
+
         public function editTrophy($id){
  
             $data = null;
@@ -592,6 +603,50 @@
                 }
             }
             return $data;
+        }
+
+
+        public function updateTrophy($data){
+            
+            
+            if($data['imageTROPHY'] == null){
+                $query = "UPDATE trophy SET trophy_name='$data[trophy_name]',trophy_place='$data[trophy_place]', trophy_prizepool='$data[trophy_prizepool]' WHERE id='$data[id] '";
+            }
+            else{
+                
+                $query = "UPDATE trophy SET trophy_name='$data[trophy_name]',trophy_place='$data[trophy_place]', trophy_prizepool='$data[trophy_prizepool]',  trophy_img='$data[trophy_img]' WHERE id='$data[id] '";
+                
+            }   
+            if ($sql = $this->conn->query($query)) {
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+
+        public function editSlider($id){
+ 
+            $data = null;
+ 
+            $query = "SELECT * FROM sliderimg WHERE id = '$id'";
+            if ($sql = $this->conn->query($query)) {
+                while($row = $sql->fetch_assoc()){
+                    $data = $row;
+                }
+            }
+            return $data;
+        }
+
+
+        public function updateSlider($data){
+            $query = "UPDATE sliderimg SET imgpath='$data[pathi]' WHERE id='$data[id] '";
+            
+            if ($sql = $this->conn->query($query)) {
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 ?>

@@ -107,21 +107,15 @@ if ($_SESSION['role'] != 2) {
               include '../modelcontroller/model.php';
               $model = new Model();
               $id = $_REQUEST['id'];
-              $row = $model->editTrophy($id);
+              $row = $model->editSlider($id);
  
               if (isset($_POST['update'])) {
-                if (isset($_POST['trophy_name']) && isset($_POST['trophy_place']) && isset($_POST['trophy_prizepool']) && isset($_POST['trophy_author'])) {
-                    $data['id'] = $id;
-                    $data['trophy_name'] = $_POST['trophy_name'];
-                    $data['trophy_place'] = $_POST['trophy_place'];
-                    $data['trophy_prizepool'] = $_POST['trophy_prizepool'];
-                    $data['trophy_author'] = $_POST['trophy_author'];
-                    $data['imageTROPHY'] = null;
-                    if(isset($_FILES['photoTrophy']['name'])){
-                        $data['imageTROPHY'] = $_FILES['photoTrophy']['name'];
-                        $data['pathi'] = 'uploads/trophyimg/'.$data['imageTROPHY'];
-                        move_uploaded_file($_FILES['photoTrophy']['tmp_name'], $data['pathi']);
-                    }
+                if (isset($_FILES['photoSlider']['name'])) {
+                    
+                    $data['imageSLIDER'] = $_FILES['photoSlider']['name'];
+                    $data['pathi'] = 'uploads/trophyimg/'.$data['imageSLIDER'];
+                    move_uploaded_file($_FILES['photoSlider']['tmp_name'], $data['pathi']);
+                    
                     
                     $update = $model->updateTrophy($data);
  
@@ -135,15 +129,15 @@ if ($_SESSION['role'] != 2) {
  
                   }else{
                     echo "<script>alert('empty');</script>";
-                    header("Location: edit_trophy.php?id=$id");
+                    header("Location: edit_slider.php?id=$id");
                   }
                 }
           ?>
 
         <div class="user-settings-form">
             <div class="photo-preview">
-            <?php if($row['trophy_img'] != null){?>
-                            <td><img src="/dashboard/<?php echo $row['trophy_img']; ?>" alt="Photo"></td>
+            <?php if($row['imgpath'] != null){?>
+                            <td><img src="/dashboard/<?php echo $row['imgpath']; ?>" alt="Photo"></td>
                         <?php } else{?>
                             <td><img src="/dashboard/uploads/userimg/userprofile.png" alt="Placeholder Image"></td>
                         <?php } 
@@ -151,31 +145,19 @@ if ($_SESSION['role'] != 2) {
 
             </div>
         <form method="POST" enctype="multipart/form-data">
-            <h2 style="text-align:center;"><?php echo $row['trophy_name'] ?>' Trophy Settings</h2>
+            <h2 style="text-align:center;"><?php echo $row['id'] ?>' SliderImg Settings</h2>
             <div class="form-group">
                 <label for="id"><i class='bx bxs-user'></i>ID</label>
                 <input type="text" id="id" name="id" value="<?php echo $row['id'] ?>" readonly>
             </div>
             <div class="form-group">
-                <label for="fullname"><i class='bx bxs-user-detail'></i>Trophy Name</label>
-                <input type="text" id="fullname" name="trophy_name" value="<?php echo $row['trophy_name'] ?>">
-            </div>
-            <div class="form-group">
-                <label for="username"><i class='bx bxs-user'></i>Trophy Place</label>
-                <input type="text" id="place" name="trophy_place" value="<?php echo $row['trophy_place'] ?>">
-            </div>
-            <div class="form-group">
-                <label for="email"><i class='bx bxs-envelope'></i>Trophy Prizepool</label>
-                <input type="text" id="prizepool" name="trophy_prizepool" value="<?php echo $row['trophy_prizepool'] ?>">
-            </div>
-            <div class="form-group">
-                <label for="password"><i class='bx bxs-lock-alt'></i>Trophy Author</label>
-                <input type="text" id="author" name="trophy_author" value="<?php echo $row['trophy_author'] ?>" readonly>
+                <label for="author"><i class='bx bxs-lock-alt'></i>Slider Author</label>
+                <input type="text" id="author" name="author" value="<?php echo $row['author'] ?>" readonly>
             </div>
 
             <div class="form-group" id="fotoSELECT">
                 <label for="photo"><i class='bx bxs-camera'></i>Photo</label>
-                <input type="file" id="photo" name="photoTrophy" >
+                <input type="file" id="photo" name="photoSlider" >
             </div>
             <button type="submit" name="update"><i class='bx bxs-save'></i>Save Changes</button>
         </form>

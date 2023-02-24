@@ -110,29 +110,12 @@ if ($_SESSION['role'] != 2) {
               $row = $model->editPost($id);
  
               if (isset($_POST['update'])) {
-                if (isset($_POST['fullname']) && isset($_POST['email']) && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['city']) && isset($_POST['fshat']) && isset($_POST['zipkodi']) && isset($_POST['roli'])) {
+                if (isset($_POST['year']) && isset($_POST['content'])) {
                     $data['id'] = $id;
-                    $data['name'] = $_POST['fullname'];
-                    $data['username'] = $_POST['username'];
-                    $data['email'] = $_POST['email'];
-                    $data['password'] = $_POST['password'];
-                    $data['qyteti'] = $_POST['city'];
-                    $data['fshati'] = $_POST['fshat'];
-                    $data['zipkodi'] = $_POST['zipkodi'];
-                    $data['imageUSER'] = null;
-                    if(isset($_FILES['photoUser']['name'])){
-                        $data['imageUSER'] = $_FILES['photoUser']['name'];
-                        $data['pathi'] = 'uploads/userimg/'.$data['imageUSER'];
-                        move_uploaded_file($_FILES['photoUser']['tmp_name'], $data['pathi']);
-                    }
-                    if($_POST['roli'] == 'Admin'){
-                        $data['roli'] = 2;
-                    }
-                    else{
-                        $data['roli'] = 1;
-                    }
+                    $data['year'] = $_POST['year'];
+                    $data['content'] = $_POST['content'];
                     
-                    $update = $model->update($data);
+                    $update = $model->updatePost($data);
  
                     if($update){
                       echo "<script>alert('record update successfully');</script>";
@@ -144,28 +127,28 @@ if ($_SESSION['role'] != 2) {
  
                   }else{
                     echo "<script>alert('empty');</script>";
-                    header("Location: edit_user.php?id=$id");
+                    header("Location: edit_post.php?id=$id");
                   }
                 }
           ?>
 
         <form method="POST" enctype="multipart/form-data">
-            <h2 style="text-align:center;"><?php echo $row['year'] ?>' Post Settings</h2>
+            <h2 style="text-align:center;"><?php echo $row['year'] ?>' HistoryPost Settings</h2>
             <div class="form-group">
                 <label for="id"><i class='bx bxs-user'></i>ID</label>
                 <input type="text" id="id" name="id" value="<?php echo $row['id'] ?>" readonly>
             </div>
             <div class="form-group">
-                <label for="fullname"><i class='bx bxs-user-detail'></i>Year</label>
-                <input type="text" id="fullname" name="fullname" value="<?php echo $row['year'] ?>">
+                <label for="year"><i class='bx bxs-user-detail'></i>Year</label>
+                <input type="text" id="year" name="year" value="<?php echo $row['year'] ?>">
             </div>
             <div class="form-group">
-                <label for="username"><i class='bx bxs-user'></i>Content</label>
-                <input type="text" id="username" name="username" value="<?php echo $row['content'] ?>">
+                <label for="content"><i class='bx bxs-user'></i>Content</label>
+                <input type="text" id="content" name="content" value="<?php echo $row['content'] ?>">
             </div>
             <div class="form-group">
-                <label for="zipcode"><i class='bx bxs-map'></i>Author</label>
-                <input type="text" id="zipcode" name="zipkodi" value="<?php echo $row['author'] ?>">
+                <label for="author"><i class='bx bxs-map'></i>Author</label>
+                <input type="text" id="author" name="author" value="<?php echo $row['author'] ?>" readonly>
             </div>
             <button type="submit" name="update"><i class='bx bxs-save'></i>Save Changes</button>
         </form>
