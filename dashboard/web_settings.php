@@ -49,7 +49,7 @@ if ($_SESSION['role'] != 2) {
 
         <div class="nav-logreg">
             <a href="user_settings.php">
-                <img src="<?php echo $_SESSION['profile'] ?>" alt="Placeholder Image" style="height: 40px;width: 65px;border-radius: 50%;overflow: hidden" />
+                <img src="<?php echo $_SESSION['profile'] ?>" alt="Placeholder Image" style="height: 50px;width: 50px;border-radius: 50%;overflow: hidden" />
             </a>
 
 

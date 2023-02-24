@@ -46,7 +46,7 @@ if ($_SESSION['role'] != 2) {
 
         <div class="nav-logreg">
             <a href="user_settings.php">
-                <img src="<?php echo $_SESSION['profile'] ?>" alt="Placeholder Image" style="height: 40px;width: 65px;border-radius: 50%;overflow: hidden" />
+                <img src="<?php echo $_SESSION['profile'] ?>" alt="Placeholder Image" style="height: 50px;width: 50px;border-radius: 50%;overflow: hidden" />
             </a>
 
 
@@ -212,8 +212,8 @@ if ($_SESSION['role'] != 2) {
                     <td><?php echo $row['roli']; ?></td>
                     <td>
 
-                    <button onclick="editUser(this)">Edit</button>
-                    <button onclick="window.location.href = 'delete_user.php?id=<?php echo $row['id']; ?>'">Delete</button>
+                    <button name="editButton" onclick="window.location.href = 'edit_user.php?id=<?php echo $row['id']; ?>'">Edit</button>
+                    <button class="delete-btn" name='deleteButton' onclick="window.location.href = 'delete_user.php?id=<?php echo $row['id']; ?>'">Delete</button>
                     </td>
                     </tr>
 
@@ -230,32 +230,6 @@ if ($_SESSION['role'] != 2) {
     
     <script src="../script/script.js"></script>
     <script src="/dashboard/DASHBOARDscript/userat.js"></script>
-    <script>
-        function editUser(button) {
-            var row = button.parentNode.parentNode; // Get the row containing the clicked button
-            var image = row.cells[1];
-            var fullname = row.cells[2];
-            var username = row.cells[3];
-            var email = row.cells[4];
-            var password = row.cells[5];
-            var city = row.cells[6];
-            var fshati = row.cells[7];
-            var zipcodi = row.cells[8];
-
-            // Replace the name and email cells with input fields
-            image.innerHTML = '<input type="text" value="' +     image.innerText + '">';
-            fullname.innerHTML = '<input type="text" value="' +  fullname.innerText + '">';
-            username.innerHTML = '<input type="text" value="' +  username.innerText + '">';
-            email.innerHTML = '<input type="text" value="' +    email.innerText + '">';
-            password.innerHTML = '<input type="text" value="' + password.innerText + '">';
-            city.innerHTML = '<input type="text" value="' +     city.innerText + '">';
-            fshati.innerHTML = '<input type="text" value="' +   fshati.innerText + '">';
-            zipcodi.innerHTML = '<input type="text" value="' +    zipcodi.innerText + '">';
-
-            // Change the "Edit" button text to "Save"
-            button.innerText = 'Save';
-        }
-    </script>
 </body>
 <footer>
         <div id="SOCIALMEDIA" class="foot1">

@@ -550,9 +550,16 @@
         }
  
         public function update($data){
- 
-            $query = "UPDATE user SET fullname='$data[name]',username='$data[username]', email='$data[email]',  password='$data[address]' WHERE id='$data[id] '";
- 
+            
+            
+            if($data['imageUSER'] == null){
+                $query = "UPDATE user SET fullname='$data[name]',username='$data[username]', email='$data[email]',  password='$data[password]',qyteti='$data[qyteti]',fshati='$data[fshati]', zipkodi='$data[zipkodi]',roli='$data[roli]' WHERE id='$data[id] '";
+            }
+            else{
+                
+                $query = "UPDATE user SET fullname='$data[name]',username='$data[username]', email='$data[email]',  password='$data[password]',qyteti='$data[qyteti]',fshati='$data[fshati]', zipkodi='$data[zipkodi]',roli='$data[roli]',profili='$data[pathi]' WHERE id='$data[id] '";
+                
+            }   
             if ($sql = $this->conn->query($query)) {
                 return true;
             }else{

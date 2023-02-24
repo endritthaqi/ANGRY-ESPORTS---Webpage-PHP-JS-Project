@@ -1,8 +1,17 @@
-<?php session_start(); 
+<?php 
+
+session_start(); 
+
 if (!(isset($_SESSION['role']))) {
     header('Location: ../logout.php');
     exit;
 }
+
+if ($_SESSION['role'] != 2) {
+    header('Location: /dashboard/index.php');
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -94,52 +103,123 @@ if (!(isset($_SESSION['role']))) {
         </div>
 
 
-
+        <?php
+              include '../modelcontroller/model.php';
+              $model = new Model();
+              $id = $_REQUEST['id'];
+              $row = $model->edit($id);
+ 
+              if (isset($_POST['update'])) {
+                if (isset($_POST['fullname']) && isset($_POST['email']) && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['city']) && isset($_POST['fshat']) && isset($_POST['zipkodi']) && isset($_POST['roli'])) {
+                    echo '<h1>GAHAHAHAH<h1>';
+                    $data['id'] = $id;
+                    $data['name'] = $_POST['fullname'];
+                    $data['username'] = $_POST['username'];
+                    $data['email'] = $_POST['email'];
+                    $data['password'] = $_POST['password'];
+                    $data['qyteti'] = $_POST['city'];
+                    $data['fshati'] = $_POST['fshat'];
+                    $data['zipkodi'] = $_POST['zipkodi'];
+                    $data['imageUSER'] = null;
+                    if(isset($_FILES['photoUser']['name'])){
+                        $data['imageUSER'] = $_FILES['photoUser']['name'];
+                        $data['pathi'] = 'uploads/userimg/'.$data['imageUSER'];
+                        move_uploaded_file($_FILES['imageUSER']['tmp_name'], $data['pathi']);
+                    }
+                    if($_POST['roli'] == 'Admin'){
+                        $data['roli'] = 2;
+                    }
+                    else{
+                        $data['roli'] = 1;
+                    }
+                    
+                    $update = $model->update($data);
+ 
+                    if($update){
+                      echo "<script>alert('record update successfully');</script>";
+                      echo "<script>window.location.href = 'index.php';</script>";
+                    }else{
+                      echo "<script>alert('record update failed');</script>";
+                      echo "<script>window.location.href = 'index.php';</script>";
+                    }
+ 
+                  }else{
+                    echo "<script>alert('empty');</script>";
+                    header("Location: edit_user.php?id=$id");
+                  }
+                }
+          ?>
 
         <div class="user-settings-form">
             <div class="photo-preview">
-                <img src="<?php echo $_SESSION['profile'] ?>" alt="Profile photo">
+            <?php if($row['profili'] != null){?>
+                            <td><img src="/dashboard/<?php echo $row['profili']; ?>" alt="Photo"></td>
+                        <?php } else{?>
+                            <td><img src="/dashboard/uploads/userimg/userprofile.png" alt="Placeholder Image"></td>
+                        <?php } 
+                        ?>
 
             </div>
-
-            <h2>User Settings</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <h2 style="text-align:center;"><?php echo $row['fullname'] ?>' User Settings</h2>
             <div class="form-group">
                 <label for="id"><i class='bx bxs-user'></i>ID</label>
-                <input type="text" id="id" name="id" value="<?php echo $_SESSION['id'] ?>" readonly>
+                <input type="text" id="id" name="id" value="<?php echo $row['id'] ?>" readonly>
             </div>
             <div class="form-group">
                 <label for="fullname"><i class='bx bxs-user-detail'></i>Full Name</label>
-                <input type="text" id="fullname" name="fullname" value="<?php echo $_SESSION['fullname'] ?>">
+                <input type="text" id="fullname" name="fullname" value="<?php echo $row['fullname'] ?>">
             </div>
             <div class="form-group">
                 <label for="username"><i class='bx bxs-user'></i>Username</label>
-                <input type="text" id="username" name="username" value="<?php echo $_SESSION['username'] ?>">
+                <input type="text" id="username" name="username" value="<?php echo $row['username'] ?>">
             </div>
             <div class="form-group">
                 <label for="email"><i class='bx bxs-envelope'></i>Email</label>
-                <input type="email" id="email" name="email" value="<?php echo $_SESSION['email'] ?>">
+                <input type="email" id="email" name="email" value="<?php echo $row['email'] ?>">
             </div>
             <div class="form-group">
                 <label for="password"><i class='bx bxs-lock-alt'></i>Password</label>
-                <input type="password" id="password" name="password" value="********">
+                <input type="password" id="password" name="password" value="<?php echo $row['password'] ?>">
             </div>
             <div class="form-group">
                 <label for="city"><i class='bx bxs-city'></i>City</label>
-                <input type="text" id="city" name="city" value="<?php echo $_SESSION['qytety'] ?>">
+                <input type="text" id="city" name="city" value="<?php echo $row['qyteti'] ?>">
             </div>
             <div class="form-group">
                 <label for="fshat"><i class='bx bxs-flag-alt'></i>Fshati</label>
-                <input type="text" id="fshat" name="fshat" value="<?php echo $_SESSION['fshaty'] ?>">
+                <input type="text" id="fshat" name="fshat" value="<?php echo $row['fshati'] ?>">
             </div>
             <div class="form-group">
                 <label for="zipcode"><i class='bx bxs-map'></i>Zip Code</label>
-                <input type="text" id="zipcode" name="zipcode" value="<?php echo $_SESSION['zipkody'] ?>">
+                <input type="text" id="zipcode" name="zipkodi" value="<?php echo $row['zipkodi'] ?>">
+            </div>
+            <div class="form-group">
+                            <label for="role"><i class='bx bxs-user-detail'></i>Role</label>
+                            <select id="role" name="roli" required>  
+                            <?php
+                                if($row['roli'] == 2){
+                                    ?>
+                                    <option value="" disabled>Select role</option>
+                                    <option value="Admin" selected>Admin</option>
+                                    <option value="Player">Player</option>
+                                    <?php
+                                }else{
+                                    ?>
+                                    <option value="" disabled>Select role</option>
+                                    <option value="Admin" >Admin</option>
+                                    <option value="Player" selected>Player</option>
+                                    <?php
+                                }
+                            ?>
+                            </select>
             </div>
             <div class="form-group" id="fotoSELECT">
                 <label for="photo"><i class='bx bxs-camera'></i>Photo</label>
-                <input type="file" id="photo" name="photo" >
+                <input type="file" id="photo" name="photoUser" >
             </div>
-            <button type="submit"><i class='bx bxs-save'></i>Save Changes</button>
+            <button type="submit" name="update"><i class='bx bxs-save'></i>Save Changes</button>
+        </form>
         </div>
 
 

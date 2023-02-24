@@ -40,7 +40,7 @@ if (!(isset($_SESSION['role']))) {
             </div>
 
             <a href="user_settings.php">
-                <img src="<?php echo $_SESSION['profile'] ?>" alt="Placeholder Image" style="height: 40px;width: 65px;border-radius: 50%;overflow: hidden" />
+                <img src="<?php echo $_SESSION['profile'] ?>" alt="Placeholder Image" style="height: 50px;width: 50px;border-radius: 50%;overflow: hidden" />
             </a>
             <a href="/logout.php" style="color:black">
                 <i class="bx bx-log-out"></i> Logout
