@@ -107,7 +107,7 @@ if ($_SESSION['role'] != 2) {
               include '../modelcontroller/model.php';
               $model = new Model();
               $id = $_REQUEST['id'];
-              $row = $model->edit($id);
+              $row = $model->editPost($id);
  
               if (isset($_POST['update'])) {
                 if (isset($_POST['fullname']) && isset($_POST['email']) && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['city']) && isset($_POST['fshat']) && isset($_POST['zipkodi']) && isset($_POST['roli'])) {
@@ -149,73 +149,23 @@ if ($_SESSION['role'] != 2) {
                 }
           ?>
 
-        <div class="user-settings-form">
-            <div class="photo-preview">
-            <?php if($row['profili'] != null){?>
-                            <td><img src="/dashboard/<?php echo $row['profili']; ?>" alt="Photo"></td>
-                        <?php } else{?>
-                            <td><img src="/dashboard/uploads/userimg/userprofile.png" alt="Placeholder Image"></td>
-                        <?php } 
-                        ?>
-
-            </div>
         <form method="POST" enctype="multipart/form-data">
-            <h2 style="text-align:center;"><?php echo $row['fullname'] ?>' User Settings</h2>
+            <h2 style="text-align:center;"><?php echo $row['year'] ?>' Post Settings</h2>
             <div class="form-group">
                 <label for="id"><i class='bx bxs-user'></i>ID</label>
                 <input type="text" id="id" name="id" value="<?php echo $row['id'] ?>" readonly>
             </div>
             <div class="form-group">
-                <label for="fullname"><i class='bx bxs-user-detail'></i>Full Name</label>
-                <input type="text" id="fullname" name="fullname" value="<?php echo $row['fullname'] ?>">
+                <label for="fullname"><i class='bx bxs-user-detail'></i>Year</label>
+                <input type="text" id="fullname" name="fullname" value="<?php echo $row['year'] ?>">
             </div>
             <div class="form-group">
-                <label for="username"><i class='bx bxs-user'></i>Username</label>
-                <input type="text" id="username" name="username" value="<?php echo $row['username'] ?>">
+                <label for="username"><i class='bx bxs-user'></i>Content</label>
+                <input type="text" id="username" name="username" value="<?php echo $row['content'] ?>">
             </div>
             <div class="form-group">
-                <label for="email"><i class='bx bxs-envelope'></i>Email</label>
-                <input type="email" id="email" name="email" value="<?php echo $row['email'] ?>">
-            </div>
-            <div class="form-group">
-                <label for="password"><i class='bx bxs-lock-alt'></i>Password</label>
-                <input type="password" id="password" name="password" value="<?php echo $row['password'] ?>">
-            </div>
-            <div class="form-group">
-                <label for="city"><i class='bx bxs-city'></i>City</label>
-                <input type="text" id="city" name="city" value="<?php echo $row['qyteti'] ?>">
-            </div>
-            <div class="form-group">
-                <label for="fshat"><i class='bx bxs-flag-alt'></i>Fshati</label>
-                <input type="text" id="fshat" name="fshat" value="<?php echo $row['fshati'] ?>">
-            </div>
-            <div class="form-group">
-                <label for="zipcode"><i class='bx bxs-map'></i>Zip Code</label>
-                <input type="text" id="zipcode" name="zipkodi" value="<?php echo $row['zipkodi'] ?>">
-            </div>
-            <div class="form-group">
-                            <label for="role"><i class='bx bxs-user-detail'></i>Role</label>
-                            <select id="role" name="roli" required>  
-                            <?php
-                                if($row['roli'] == 2){
-                                    ?>
-                                    <option value="" disabled>Select role</option>
-                                    <option value="Admin" selected>Admin</option>
-                                    <option value="Player">Player</option>
-                                    <?php
-                                }else{
-                                    ?>
-                                    <option value="" disabled>Select role</option>
-                                    <option value="Admin" >Admin</option>
-                                    <option value="Player" selected>Player</option>
-                                    <?php
-                                }
-                            ?>
-                            </select>
-            </div>
-            <div class="form-group" id="fotoSELECT">
-                <label for="photo"><i class='bx bxs-camera'></i>Photo</label>
-                <input type="file" id="photo" name="photoUser" >
+                <label for="zipcode"><i class='bx bxs-map'></i>Author</label>
+                <input type="text" id="zipcode" name="zipkodi" value="<?php echo $row['author'] ?>">
             </div>
             <button type="submit" name="update"><i class='bx bxs-save'></i>Save Changes</button>
         </form>

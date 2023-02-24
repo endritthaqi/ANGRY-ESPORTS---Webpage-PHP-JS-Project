@@ -144,7 +144,7 @@ if (!(isset($_SESSION['role']))) {
                     <td><?php echo $row['author']; ?></td>
                     <td>
                         
-                            <button class="btn-edit">Edit</button>
+                            <button class="btn-edit" onclick="window.location.href = 'edit_post.php?id=<?php echo $row['id']; ?>'">Edit</button>
                             <button class="btn-delete" onclick="window.location.href = 'delete_posts.php?id=<?php echo $row['id']; ?>'">Delete</button>
                     </td>
                     </tr>

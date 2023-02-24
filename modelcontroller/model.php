@@ -580,5 +580,18 @@
             }
             return $data;
         }
+
+        public function editTrophy($id){
+ 
+            $data = null;
+ 
+            $query = "SELECT * FROM trophy WHERE id = '$id'";
+            if ($sql = $this->conn->query($query)) {
+                while($row = $sql->fetch_assoc()){
+                    $data = $row;
+                }
+            }
+            return $data;
+        }
     }
 ?>

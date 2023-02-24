@@ -156,7 +156,7 @@ if (!(isset($_SESSION['role']))) {
                         <td><?php echo $row['trophy_prizepool']; ?></td>
                         <td><?php echo $row['trophy_author']; ?></td>
                         <td>
-                                <button class="btn-edit" >Edit</button>
+                                <button class="btn-edit" onclick="window.location.href = 'edit_trofe.php?id=<?php echo $row['id']; ?>'" >Edit</button> 
                                 <button class="btn-delete" onclick="window.location.href = 'delete_trophy.php?id=<?php echo $row['id']; ?>'">Delete</button>
                         </td>
                     </tr>
