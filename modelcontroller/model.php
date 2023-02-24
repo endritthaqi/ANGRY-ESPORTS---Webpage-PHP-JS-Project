@@ -566,5 +566,19 @@
                 return false;
             }
         }
+
+
+        public function editPost($id){
+ 
+            $data = null;
+ 
+            $query = "SELECT * FROM post WHERE id = '$id'";
+            if ($sql = $this->conn->query($query)) {
+                while($row = $sql->fetch_assoc()){
+                    $data = $row;
+                }
+            }
+            return $data;
+        }
     }
 ?>

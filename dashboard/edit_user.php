@@ -111,7 +111,6 @@ if ($_SESSION['role'] != 2) {
  
               if (isset($_POST['update'])) {
                 if (isset($_POST['fullname']) && isset($_POST['email']) && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['city']) && isset($_POST['fshat']) && isset($_POST['zipkodi']) && isset($_POST['roli'])) {
-                    echo '<h1>GAHAHAHAH<h1>';
                     $data['id'] = $id;
                     $data['name'] = $_POST['fullname'];
                     $data['username'] = $_POST['username'];
@@ -124,7 +123,7 @@ if ($_SESSION['role'] != 2) {
                     if(isset($_FILES['photoUser']['name'])){
                         $data['imageUSER'] = $_FILES['photoUser']['name'];
                         $data['pathi'] = 'uploads/userimg/'.$data['imageUSER'];
-                        move_uploaded_file($_FILES['imageUSER']['tmp_name'], $data['pathi']);
+                        move_uploaded_file($_FILES['photoUser']['tmp_name'], $data['pathi']);
                     }
                     if($_POST['roli'] == 'Admin'){
                         $data['roli'] = 2;
