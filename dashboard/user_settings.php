@@ -97,7 +97,17 @@ if (!(isset($_SESSION['role']))) {
         <?php 
         include '../modelcontroller/model.php';
         $model = new Model();
-        $updateUser = $model->updateUserSETTINGS();
+
+
+        $logoPath = null;
+        if(!empty($_FILES['photo']['tmp_name'])){
+            $userlogo = $_FILES['photo']['name'];
+            $path = 'uploads/userimg/'.$userlogo;
+            move_uploaded_file($_FILES['photo']['tmp_name'], $path);
+            $logoPath = $path;
+        }
+
+        $updateUser = $model->updateUserSETTINGS($logoPath);
         ?>
         <div class="user-settings-form">
             <div class="photo-preview">

@@ -222,7 +222,7 @@
 
 
 
-        public function updateUserSETTINGS(){
+        public function updateUserSETTINGS($logoPath){
             if(isset($_POST['SAVEuserSETT'])){
                 $id = $_POST['id'];
                 $fullname = $_POST['fullname'];
@@ -233,14 +233,9 @@
                 $fshat = $_POST['fshat'];
                 $zipcode = $_POST['zipcode'];
 
-                if(!empty($_FILES['photo']['tmp_name'])){
-                    $userlogo = $_FILES['photo']['name'];
-                    $path = 'uploads/userimg/'.$userlogo;
-                    move_uploaded_file($_FILES['photo']['tmp_name'], $path);
-                    $logoPath = $path;
-                }
+                
 
-                else{
+                if($logoPath == null){
                     $queryy = "SELECT profili FROM user";
                     $result = $this->conn->query($queryy);
                     if($result->num_rows>0){
@@ -249,6 +244,7 @@
                     }
                     $logoPath = $existingLogoPathFromDatabase;
                 }
+                
 
                 
 
