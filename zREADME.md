@@ -12,3 +12,11 @@ DELIMITER ;
 procedura me shtu user ose admin
 
 CALL ShtoUser('Endrit Thaqi', 'endritii', 'endritii@gmail.com', 'password123', 'Malisheve', 'Shkarashnik', '11201', 'Admin', 'pathi fotos');
+
+
+emri databazes : angryesports
+qasja prej serverit : http://188.93.233.189/
+useradmin : endritthaqi33@gmail.com
+password : Endritii..44
+
+
