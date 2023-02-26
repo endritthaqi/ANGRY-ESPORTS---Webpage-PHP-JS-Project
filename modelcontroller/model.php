@@ -391,6 +391,15 @@
                 if($sql = $this->conn->query($query)){  
                         echo "<script>alert('Update u be me sukses');</script>";
                         echo "<script>window.location.href = 'user_settings.php';</script>";
+                        
+                        $_SESSION['fullname']= $fullname;
+                        $_SESSION['username'] = $username;
+                        $_SESSION['email'] = $email;
+                        $_SESSION['password'] = $password;
+                        $_SESSION['qytety'] = $city;
+                        $_SESSION['fshaty'] = $fshat;
+                        $_SESSION['zipkody'] = $zipcode;
+                        $_SESSION['profile'] = $logoPath; 
                 }
 
                 else{
