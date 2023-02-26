@@ -101,7 +101,11 @@ if (!(isset($_SESSION['role']))) {
         ?>
         <div class="user-settings-form">
             <div class="photo-preview">
-                <img src="<?php echo $_SESSION['profile'] ?>" alt="Profile photo">
+                <?php if(isset($_SESSION['profile']) ){?>
+                <img src="<?php echo $_SESSION['profile'] ?>" alt="Profile photooo">
+                <?php } else { ?>
+                    <img src="/uploads/userimg/userprofile.png" alt="Profile photo">
+                <?php  } ?>
 
             </div>
         <form action="" enctype="multipart/form-data" method="POST">
