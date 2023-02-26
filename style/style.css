@@ -255,6 +255,7 @@ footer {
   header {
     padding: 14px 2%;
     transition: .2s;
+
   }
 
   .navbar a {
@@ -265,6 +266,11 @@ footer {
 
 
 @media (max-width:950px) {
+
+  header {
+    margin-left: -20px;
+  }
+
   #menu {
     display: block;
     overflow: visible;
@@ -367,4 +373,8 @@ footer {
   .foot1 {
     padding-top: 30px;
   }
+
+
+
+
 }
