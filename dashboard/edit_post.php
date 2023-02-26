@@ -30,6 +30,7 @@ if ($_SESSION['role'] != 2) {
     <link rel="icon" href="img/angry2022logo.png" />
 
     <title>ANGRY E-SPORTS</title>
+    
 </head>
 
 <body>
@@ -130,28 +131,29 @@ if ($_SESSION['role'] != 2) {
                     header("Location: edit_post.php?id=$id");
                   }
                 }
-          ?>
-
-        <form method="POST" enctype="multipart/form-data">
-            <h2 style="text-align:center;"><?php echo $row['year'] ?>' HistoryPost Settings</h2>
-            <div class="form-group">
-                <label for="id"><i class='bx bxs-user'></i>ID</label>
-                <input type="text" id="id" name="id" value="<?php echo $row['id'] ?>" readonly>
-            </div>
-            <div class="form-group">
-                <label for="year"><i class='bx bxs-user-detail'></i>Year</label>
-                <input type="text" id="year" name="year" value="<?php echo $row['year'] ?>">
-            </div>
-            <div class="form-group">
-                <label for="content"><i class='bx bxs-user'></i>Content</label>
-                <input type="text" id="content" name="content" value="<?php echo $row['content'] ?>">
-            </div>
-            <div class="form-group">
-                <label for="author"><i class='bx bxs-map'></i>Author</label>
-                <input type="text" id="author" name="author" value="<?php echo $row['author'] ?>" readonly>
-            </div>
-            <button type="submit" name="update"><i class='bx bxs-save'></i>Save Changes</button>
-        </form>
+        ?>
+        <div class="editBOX" style="margin: 0 auto;margin-top:100px;margin-bottom:100px; " >
+            <form method="POST" enctype="multipart/form-data">
+                <h2 style="text-align:center;"><?php echo $row['year'] ?>' HistoryPost Settings</h2>
+                <div class="form-group">
+                    <label for="id"><i class='bx bxs-user'></i>ID</label>
+                    <input type="text" id="id" name="id" value="<?php echo $row['id'] ?>" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="year"><i class='bx bxs-user-detail'></i>Year</label>
+                    <input type="text" id="year" name="year" value="<?php echo $row['year'] ?>">
+                </div>
+                <div class="form-group">
+                    <label for="content"><i class='bx bxs-user'></i>Content</label>
+                    <textarea style="border-width: 1px; border-radius:5px;" type="text" id="content" name="content" > <?php echo $row['content'] ?></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="author"><i class='bx bxs-map'></i>Author</label>
+                    <input type="text" id="author" name="author" value="<?php echo $row['author'] ?>" readonly>
+                </div>
+                <button type="submit" name="update"><i class='bx bxs-save'></i>Save Changes</button>
+            </form>
+        </div>
         </div>
 
 

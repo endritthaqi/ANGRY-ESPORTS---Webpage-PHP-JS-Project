@@ -109,17 +109,17 @@ if ($_SESSION['role'] != 2) {
               $id = $_REQUEST['id'];
               $row = $model->editSlider($id);
  
-              if (isset($_POST['update'])) {
+              if (isset($_POST['updateSlider'])) {
                 if (isset($_FILES['photoSlider']['name'])) {
-                    
+                    $data['id'] =  $id;
                     $data['imageSLIDER'] = $_FILES['photoSlider']['name'];
                     $data['pathi'] = 'uploads/trophyimg/'.$data['imageSLIDER'];
                     move_uploaded_file($_FILES['photoSlider']['tmp_name'], $data['pathi']);
                     
                     
-                    $update = $model->updateTrophy($data);
+                    $updatey = $model->updateSlider($data);
  
-                    if($update){
+                    if($updatey){
                       echo "<script>alert('record update successfully');</script>";
                       echo "<script>window.location.href = 'index.php';</script>";
                     }else{
@@ -131,7 +131,7 @@ if ($_SESSION['role'] != 2) {
                     echo "<script>alert('empty');</script>";
                     header("Location: edit_slider.php?id=$id");
                   }
-                }
+            }
           ?>
 
         <div class="user-settings-form">
@@ -159,7 +159,7 @@ if ($_SESSION['role'] != 2) {
                 <label for="photo"><i class='bx bxs-camera'></i>Photo</label>
                 <input type="file" id="photo" name="photoSlider" >
             </div>
-            <button type="submit" name="update"><i class='bx bxs-save'></i>Save Changes</button>
+            <button type="submit" name="updateSlider"><i class='bx bxs-save'></i>Save Changes</button>
         </form>
         </div>
 
