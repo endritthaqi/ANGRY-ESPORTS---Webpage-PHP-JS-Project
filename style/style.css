@@ -267,9 +267,7 @@ footer {
 
 @media (max-width:950px) {
 
-  header {
-    margin-left: -20px;
-  }
+
 
   #menu {
     display: block;
@@ -374,7 +372,26 @@ footer {
     padding-top: 30px;
   }
 
+  header {
+    width: 100%;
+  }
 
+  .nav-logreg {
+    margin-left: -15px;
+    padding: -5px;
+    width: 100%;
+  }
 
+  .fotoLogOut {
+    padding: 0px;
+    display: flex;
+
+  }
+
+  .fotoLogOut a {
+
+    margin: 7px;
+    padding: 0px;
+  }
 
 }
