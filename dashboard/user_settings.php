@@ -54,7 +54,6 @@ if (!(isset($_SESSION['role']))) {
         <div class="sidebarMADH">
             <div class="sidebar">
                 <ul class="nav-menu">
-
                     <li>
                         <a href="index.php">
                             <i class="bx bxs-dashboard"></i> Dashboard
@@ -95,14 +94,18 @@ if (!(isset($_SESSION['role']))) {
 
 
 
-
+        <?php 
+        include '../modelcontroller/model.php';
+        $model = new Model();
+        $updateUser = $model->updateUserSETTINGS();
+        ?>
         <div class="user-settings-form">
             <div class="photo-preview">
                 <img src="<?php echo $_SESSION['profile'] ?>" alt="Profile photo">
 
             </div>
-
-            <h2>User Settings</h2>
+        <form action="" enctype="multipart/form-data" method="POST">
+            <h2 style="text-align:center;">User Settings</h2>
             <div class="form-group">
                 <label for="id"><i class='bx bxs-user'></i>ID</label>
                 <input type="text" id="id" name="id" value="<?php echo $_SESSION['id'] ?>" readonly>
@@ -121,7 +124,7 @@ if (!(isset($_SESSION['role']))) {
             </div>
             <div class="form-group">
                 <label for="password"><i class='bx bxs-lock-alt'></i>Password</label>
-                <input type="password" id="password" name="password" value="********">
+                <input type="password" id="password" name="password" value="<?php echo $_SESSION['password'] ?>">
             </div>
             <div class="form-group">
                 <label for="city"><i class='bx bxs-city'></i>City</label>
@@ -139,8 +142,9 @@ if (!(isset($_SESSION['role']))) {
                 <label for="photo"><i class='bx bxs-camera'></i>Photo</label>
                 <input type="file" id="photo" name="photo" >
             </div>
-            <button type="submit"><i class='bx bxs-save'></i>Save Changes</button>
-        </div>
+                <button type="submit" name="SAVEuserSETT"><i class='bx bxs-save'></i>Save Changes</button>
+            </div>
+        </form>
 
 
 

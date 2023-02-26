@@ -308,8 +308,6 @@
             }   
         }
 
-
-
         public function updateWebSettings(){
             if(isset($_POST['updateWebSettings'])){
                 $title = $_POST['title'];
@@ -319,9 +317,6 @@
                 $discord = $_POST['discord'];
                 $twitter = $_POST['twitter'];
                 $facebook = $_POST['facebook'];
-                
-                
-                
 
                 if(!empty($_FILES['logo']['tmp_name'])){
                     $weblogo = $_FILES['logo']['name'];
@@ -340,8 +335,6 @@
                     $logoPath = $existingLogoPathFromDatabase;
                 }
 
-
-
                 $query = "UPDATE websettings SET web_title='$title',web_instagram='$instagram',
                 web_youtube='$youtube',web_twitch='$twitch',web_discord='$discord',web_twitter='$twitter',
                 web_facebook='$facebook',web_logo='$logoPath'";
@@ -358,6 +351,57 @@
             }   
         }
         
+
+
+
+        public function updateUserSETTINGS(){
+            if(isset($_POST['SAVEuserSETT'])){
+                $id = $_POST['id'];
+                $fullname = $_POST['fullname'];
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+                $city = $_POST['city'];
+                $fshat = $_POST['fshat'];
+                $zipcode = $_POST['zipcode'];
+
+                if(!empty($_FILES['photo']['tmp_name'])){
+                    $userlogo = $_FILES['photo']['name'];
+                    $path = 'uploads/userimg/'.$userlogo;
+                    move_uploaded_file($_FILES['photo']['tmp_name'], $path);
+                    $logoPath = $path;
+                }
+
+                else{
+                    $queryy = "SELECT profili FROM user";
+                    $result = $this->conn->query($queryy);
+                    if($result->num_rows>0){
+                        $row = $result->fetch_assoc();
+                        $existingLogoPathFromDatabase = $row["profili"];
+                    }
+                    $logoPath = $existingLogoPathFromDatabase;
+                }
+
+                
+
+                $query = "UPDATE `user` SET `fullname`='$fullname',`username`='$username',`email`='$email',`password`='$password',`qyteti`='$city',`fshati`='$fshat',`zipkodi`='$zipcode',`profili`='$logoPath' WHERE `id`='$id';";
+
+                
+
+                if($sql = $this->conn->query($query)){  
+                        echo "<script>alert('Update u be me sukses');</script>";
+                        echo "<script>window.location.href = 'user_settings.php';</script>";
+                }
+
+                else{
+                    echo "<script>alert('Update nuk u be');</script>";
+                    echo "<script>window.location.href = 'user_settings.php';</script>";
+                }
+
+            }   
+        }
+
+
 
 
 
@@ -549,14 +593,11 @@
             return $data;
         }
  
-        public function update($data){
-            
-            
+        public function update($data){ 
             if($data['imageUSER'] == null){
                 $query = "UPDATE user SET fullname='$data[name]',username='$data[username]', email='$data[email]',  password='$data[password]',qyteti='$data[qyteti]',fshati='$data[fshati]', zipkodi='$data[zipkodi]',roli='$data[roli]' WHERE id='$data[id] '";
             }
             else{
-                
                 $query = "UPDATE user SET fullname='$data[name]',username='$data[username]', email='$data[email]',  password='$data[password]',qyteti='$data[qyteti]',fshati='$data[fshati]', zipkodi='$data[zipkodi]',roli='$data[roli]',profili='$data[pathi]' WHERE id='$data[id] '";
                 
             }   
@@ -606,9 +647,7 @@
         }
 
 
-        public function updateTrophy($data){
-            
-            
+        public function updateTrophy($data){ 
             if($data['imageTROPHY'] == null){
                 $query = "UPDATE trophy SET trophy_name='$data[trophy_name]',trophy_place='$data[trophy_place]', trophy_prizepool='$data[trophy_prizepool]' WHERE id='$data[id] '";
             }

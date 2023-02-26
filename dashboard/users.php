@@ -11,7 +11,6 @@ if ($_SESSION['role'] != 2) {
     header('Location: /dashboard/index.php');
     exit;
 }
-
 ?>
 
 <!DOCTYPE html>
